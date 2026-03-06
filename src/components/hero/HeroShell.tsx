@@ -1,8 +1,8 @@
 "use client";
 
-import { HeroFallback } from "@/components/hero/HeroFallback";
 import { HeroOverlay } from "@/components/hero/HeroOverlay";
 import { HeroPhaseController } from "@/components/hero/HeroPhaseController";
+import { HeroStage } from "@/components/hero/HeroStage";
 import { HeroStageFrame } from "@/components/hero/HeroStageFrame";
 
 type HeroShellProps = {
@@ -29,7 +29,7 @@ export function HeroShell({ brandLine, headline, body, primaryCta, secondaryCta,
             secondaryCta={secondaryCta}
           />
           <HeroStageFrame chamberLabel={chamberLabel} chamberNote={chamberNote}>
-            <HeroFallback phase={phase} />
+            <HeroStage phase={phase} />
           </HeroStageFrame>
         </div>
       )}
