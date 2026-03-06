@@ -25,8 +25,8 @@ export function HeroProxyObject({ intensity, contourStrength }: HeroProxyObjectP
         <meshStandardMaterial
           color="#353d4d"
           metalness={0.34}
-          roughness={Math.max(0.3, 0.52 - contourStrength * 0.2)}
-          envMapIntensity={0.2 + contourStrength * 0.18}
+          roughness={Math.max(0.34, 0.56 - contourStrength * 0.18)}
+          envMapIntensity={0.24 + contourStrength * 0.16}
         />
       </mesh>
 

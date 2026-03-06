@@ -37,12 +37,12 @@ export function HeroLights({ phase, glintBoost }: HeroLightsProps) {
     }
 
     if (accentRef.current) {
-      const accentTarget = 0.02 + tone.accent * 0.22 + glintBoost * 0.46;
+      const accentTarget = 0.03 + tone.accent * 0.24 + glintBoost * 0.28;
       accentRef.current.intensity = damp(accentRef.current.intensity, accentTarget, 0.15);
     }
 
     if (floorRef.current) {
-      floorRef.current.intensity = damp(floorRef.current.intensity, 0.04 + tone.floor * 0.12, 0.05);
+      floorRef.current.intensity = damp(floorRef.current.intensity, 0.05 + tone.floor * 0.13, 0.05);
     }
   });
 
