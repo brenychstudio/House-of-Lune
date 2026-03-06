@@ -1,20 +1,25 @@
-import type { HeroPhase } from "@/components/hero/HeroTimeline";
+import type { HeroPhase } from "@/lib/webgl/heroTiming";
 
 export type HeroStagePhaseTone = {
-  light: number;
+  ambient: number;
+  rim: number;
+  fill: number;
+  accent: number;
+  floor: number;
   object: number;
+  contour: number;
   glint: number;
 };
 
 const phaseTone: Record<HeroPhase, HeroStagePhaseTone> = {
-  prelude: { light: 0.1, object: 0.08, glint: 0 },
-  trace: { light: 0.2, object: 0.16, glint: 0 },
-  contour: { light: 0.34, object: 0.32, glint: 0 },
-  emergence: { light: 0.46, object: 0.5, glint: 0.18 },
-  glint: { light: 0.62, object: 0.62, glint: 0.62 },
-  settle: { light: 0.54, object: 0.58, glint: 0.12 },
-  copy: { light: 0.52, object: 0.56, glint: 0.08 },
-  idle: { light: 0.52, object: 0.56, glint: 0.08 },
+  prelude: { ambient: 0.08, rim: 0.06, fill: 0.04, accent: 0, floor: 0.08, object: 0.08, contour: 0.04, glint: 0 },
+  trace: { ambient: 0.1, rim: 0.24, fill: 0.08, accent: 0.02, floor: 0.12, object: 0.14, contour: 0.22, glint: 0 },
+  contour: { ambient: 0.12, rim: 0.36, fill: 0.14, accent: 0.06, floor: 0.2, object: 0.28, contour: 0.5, glint: 0 },
+  emergence: { ambient: 0.14, rim: 0.42, fill: 0.24, accent: 0.12, floor: 0.24, object: 0.46, contour: 0.42, glint: 0.04 },
+  glint: { ambient: 0.16, rim: 0.48, fill: 0.28, accent: 0.32, floor: 0.26, object: 0.58, contour: 0.32, glint: 0.85 },
+  settle: { ambient: 0.14, rim: 0.34, fill: 0.2, accent: 0.12, floor: 0.22, object: 0.5, contour: 0.2, glint: 0.1 },
+  copy: { ambient: 0.14, rim: 0.28, fill: 0.18, accent: 0.1, floor: 0.2, object: 0.48, contour: 0.16, glint: 0.06 },
+  idle: { ambient: 0.14, rim: 0.26, fill: 0.17, accent: 0.08, floor: 0.18, object: 0.46, contour: 0.12, glint: 0.04 },
 };
 
 export function getHeroStageTone(phase: HeroPhase) {

@@ -14,7 +14,8 @@ export const motion = {
     cinematicSoft: "cubic-bezier(0.3, 1, 0.35, 1)",
   },
   hero: {
-    stageSettleMs: 1100,
+    stageSettleMs: 1200,
     copyDelayMs: 520,
+    glintMs: 560,
   },
 } as const;

@@ -3,6 +3,8 @@ export type PointerParallax = {
   y: number;
 };
 
+const PARALLAX_LIMIT = 0.62;
+
 export function toPointerParallax(clientX: number, clientY: number, width: number, height: number): PointerParallax {
   if (width <= 0 || height <= 0) {
     return { x: 0, y: 0 };
@@ -12,9 +14,15 @@ export function toPointerParallax(clientX: number, clientY: number, width: numbe
   const ny = (clientY / height) * 2 - 1;
 
   return {
-    x: Math.max(-1, Math.min(1, nx)),
-    y: Math.max(-1, Math.min(1, ny)),
+    x: softenParallax(nx),
+    y: softenParallax(ny),
   };
+}
+
+function softenParallax(value: number) {
+  const clamped = Math.max(-1, Math.min(1, value));
+  const eased = Math.sign(clamped) * Math.pow(Math.abs(clamped), 1.35);
+  return Math.max(-PARALLAX_LIMIT, Math.min(PARALLAX_LIMIT, eased));
 }
 
 export function damp(current: number, target: number, smoothing = 0.05) {
