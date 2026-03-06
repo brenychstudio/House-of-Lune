@@ -1,16 +1,21 @@
+import { assets } from "@/content/assets";
 import type { Piece } from "@/types/piece";
 
 export const featuredPieces: Piece[] = [
   {
-    slug: "nocturne-halo",
+    slug: "hero-ring-signature",
     category: "Ring",
-    name: "Nocturne Halo",
-    headline: "A sculpted arc balancing luminous tension.",
+    name: "Hero Ring Signature",
+    headline: "A nocturnal silhouette calibrated for restrained brilliance.",
     material: "18k blackened white gold",
-    stone: "Oval-cut diamond",
+    stone: "Pavé-set white diamonds",
     availabilityMode: "By Appointment",
-    heroImage: "/images/pieces/nocturne-halo.jpg",
-    gallery: ["/images/pieces/nocturne-halo-1.jpg", "/images/pieces/nocturne-halo-2.jpg"],
+    heroImage: assets.pieces.heroRing.hero,
+    featuredCardImage: assets.pieces.heroRing.featuredCard,
+    campaignImage: assets.pieces.heroRing.campaignStillLife,
+    onBodyImage: assets.pieces.heroRing.onBody,
+    macroImages: [assets.pieces.heroRing.macroBand, assets.pieces.heroRing.macroGemstone],
+    gallery: [assets.pieces.heroRing.gallerySideContour, assets.pieces.heroRing.onBody],
   },
   {
     slug: "eclipse-line",
@@ -20,8 +25,8 @@ export const featuredPieces: Piece[] = [
     material: "Platinum",
     stone: "White diamonds",
     availabilityMode: "Limited Series",
-    heroImage: "/images/pieces/eclipse-line.jpg",
-    gallery: ["/images/pieces/eclipse-line-1.jpg", "/images/pieces/eclipse-line-2.jpg"],
+    heroImage: assets.pieces.heroRing.campaignStillLife,
+    gallery: [assets.pieces.heroRing.gallerySideContour, assets.pieces.heroRing.onBody],
   },
   {
     slug: "velour-cascade",
@@ -31,8 +36,8 @@ export const featuredPieces: Piece[] = [
     material: "18k yellow gold",
     stone: "Champagne diamonds",
     availabilityMode: "By Appointment",
-    heroImage: "/images/pieces/velour-cascade.jpg",
-    gallery: ["/images/pieces/velour-cascade-1.jpg", "/images/pieces/velour-cascade-2.jpg"],
+    heroImage: assets.pieces.heroRing.gallerySideContour,
+    gallery: [assets.pieces.heroRing.featuredCard, assets.pieces.heroRing.macroGemstone],
   },
   {
     slug: "astral-cuff",
@@ -42,7 +47,7 @@ export const featuredPieces: Piece[] = [
     material: "18k rose gold",
     stone: "Baguette diamonds",
     availabilityMode: "Private Commission",
-    heroImage: "/images/pieces/astral-cuff.jpg",
-    gallery: ["/images/pieces/astral-cuff-1.jpg", "/images/pieces/astral-cuff-2.jpg"],
+    heroImage: assets.pieces.heroRing.onBody,
+    gallery: [assets.pieces.heroRing.macroBand, assets.pieces.heroRing.campaignStillLife],
   },
 ];

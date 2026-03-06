@@ -11,5 +11,9 @@ export type Piece = {
   stone: string;
   availabilityMode: AvailabilityMode;
   heroImage: string;
+  featuredCardImage?: string;
+  campaignImage?: string;
+  onBodyImage?: string;
+  macroImages?: string[];
   gallery: string[];
 };

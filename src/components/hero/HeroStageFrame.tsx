@@ -9,6 +9,7 @@ type HeroStageFrameProps = {
 export function HeroStageFrame({ chamberLabel, chamberNote, children }: HeroStageFrameProps) {
   return (
     <div className="surface-frame relative min-h-[26rem] overflow-hidden rounded-3xl border border-[var(--color-line)] bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.01))] p-7 shadow-[0_30px_90px_rgba(0,0,0,0.45)] lg:min-h-[32rem] lg:p-8">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_14%,rgba(255,255,255,0.08),transparent_38%),linear-gradient(180deg,rgba(2,3,8,0.2),rgba(2,3,8,0.55))]" />
       <div className="absolute inset-[8%] rounded-[2rem] border border-[rgba(190,198,212,0.22)]/80" />
       <div className="absolute inset-[16%_16%_20%] rounded-[2.4rem] border border-[rgba(207,191,157,0.18)]/80" />
       <div className="relative h-full">{children}</div>
