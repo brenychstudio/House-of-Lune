@@ -8,12 +8,12 @@ type ButtonProps = {
 };
 
 export function Button({ children, href = "#", variant = "solid", size = "md" }: ButtonProps) {
-  const base = "inline-flex items-center justify-center rounded-full border transition-colors";
-  const sizeClass = size === "sm" ? "h-10 px-4 text-xs tracking-[0.12em]" : "h-11 px-6 text-xs tracking-[0.14em]";
+  const base = "inline-flex items-center justify-center rounded-full border transition-all duration-300";
+  const sizeClass = size === "sm" ? "h-10 px-4 text-[0.65rem] tracking-[0.13em]" : "h-11 px-6 text-[0.67rem] tracking-[0.15em]";
   const variantClass =
     variant === "outline"
-      ? "border-[var(--color-line)] text-[var(--color-text)] hover:border-[var(--color-text-muted)]"
-      : "border-[var(--color-accent)] bg-[var(--color-accent)] text-black hover:bg-[#e2d8be]";
+      ? "border-[var(--color-line)] bg-[rgba(255,255,255,0.01)] text-[var(--color-text)] hover:border-[var(--color-accent-cool)] hover:bg-[rgba(255,255,255,0.04)]"
+      : "border-[var(--color-accent)] bg-[var(--color-accent)] text-black hover:border-[#d8ccae] hover:bg-[#d8ccae]";
 
   return (
     <a href={href} className={`${base} ${sizeClass} ${variantClass} uppercase`}>

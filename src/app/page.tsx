@@ -14,9 +14,13 @@ export default function Home() {
       <HomeHero />
       <IntroManifesto />
       <FeaturedCollection />
-      <CraftInDetail />
+      <div className="bg-[linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0))]">
+        <CraftInDetail />
+      </div>
       <SignatureStory />
-      <MaisonPreview />
+      <div className="bg-[linear-gradient(180deg,rgba(255,255,255,0.012),rgba(255,255,255,0))]">
+        <MaisonPreview />
+      </div>
       <JournalPreview />
       <PrivateInquiry />
     </PageShell>

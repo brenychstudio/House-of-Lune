@@ -1,14 +1,17 @@
 export const designTokens = {
   colors: {
-    bg: "#080a0f",
-    bgSoft: "#0d1119",
-    text: "#f0ecdf",
-    textMuted: "#b8b1a0",
-    line: "#242a37",
-    accent: "#d5c8a8",
+    bg: "#07090e",
+    bgSoft: "#0f1420",
+    text: "#efe9dc",
+    textMuted: "#b8b2a3",
+    line: "#2a3242",
+    lineSoft: "#1c2331",
+    accent: "#cfbf9d",
+    accentCool: "#c3ccd8",
   },
   spacing: {
-    section: "clamp(4rem, 8vw, 8rem)",
+    section: "clamp(4.5rem, 8vw, 9rem)",
+    sectionTight: "clamp(3.5rem, 6vw, 6.5rem)",
     content: "clamp(1rem, 3vw, 2rem)",
   },
   radii: {
@@ -17,7 +20,8 @@ export const designTokens = {
     lg: "1.25rem",
   },
   surfaces: {
-    base: "rgba(255, 255, 255, 0.01)",
-    raised: "rgba(255, 255, 255, 0.03)",
+    base: "rgba(255, 255, 255, 0.018)",
+    raised: "rgba(255, 255, 255, 0.036)",
+    glow: "rgba(207, 191, 157, 0.08)",
   },
 } as const;
