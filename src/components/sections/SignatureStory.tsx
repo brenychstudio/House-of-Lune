@@ -1,19 +1,22 @@
 import Image from "next/image";
 
-import { homeContent } from "@/content/home";
+import { getHomeContent } from "@/content/home";
 import { LinkArrow } from "@/components/ui/LinkArrow";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import type { Locale } from "@/i18n/config";
 
-export function SignatureStory() {
+type SignatureStoryProps = {
+  homeContent: ReturnType<typeof getHomeContent>;
+  lang: Locale;
+};
+
+export function SignatureStory({ homeContent, lang }: SignatureStoryProps) {
   return (
     <section className="mx-auto w-full max-w-6xl px-6 py-30 lg:px-10">
-      <SectionHeading eyebrow="Signature Story" title="Lines that return across collections" description={homeContent.intros.signature} />
+      <SectionHeading eyebrow={homeContent.signature.eyebrow} title={homeContent.signature.title} description={homeContent.signature.description} />
       <div className="mt-10 grid items-end gap-8 lg:grid-cols-[1fr_1.1fr]">
         <div className="max-w-3xl text-[var(--color-text-muted)]">
-          <p>
-            Our signatures are never motifs applied for recognition, but structural ideas revisited over time: tension, interval,
-            and asymmetry resolved into balance.
-          </p>
+          <p>{homeContent.signature.body}</p>
         </div>
         <div className="surface-frame relative aspect-[16/9] overflow-hidden rounded-2xl">
           <Image src={homeContent.visuals.signatureCampaign} alt="Hero ring still-life campaign frame" fill sizes="(min-width: 1024px) 44vw, 100vw" className="object-cover opacity-74" />
@@ -21,7 +24,7 @@ export function SignatureStory() {
         </div>
       </div>
       <div className="mt-10">
-        <LinkArrow href="#">Read the house story</LinkArrow>
+        <LinkArrow href={`/${lang}/journal`}>{homeContent.signature.cta}</LinkArrow>
       </div>
     </section>
   );

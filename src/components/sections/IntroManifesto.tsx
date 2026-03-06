@@ -1,6 +1,10 @@
-import { homeContent } from "@/content/home";
+import { getHomeContent } from "@/content/home";
 
-export function IntroManifesto() {
+type IntroManifestoProps = {
+  homeContent: ReturnType<typeof getHomeContent>;
+};
+
+export function IntroManifesto({ homeContent }: IntroManifestoProps) {
   return (
     <section className="section-divider py-24">
       <div className="mx-auto w-full max-w-6xl px-6 lg:px-10">

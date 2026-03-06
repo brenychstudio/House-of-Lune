@@ -1,14 +1,20 @@
 import Image from "next/image";
 
 import { featuredPieces } from "@/content/pieces";
-import { homeContent } from "@/content/home";
+import { getHomeContent } from "@/content/home";
 import { LinkArrow } from "@/components/ui/LinkArrow";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import type { Locale } from "@/i18n/config";
 
-export function FeaturedCollection() {
+type FeaturedCollectionProps = {
+  homeContent: ReturnType<typeof getHomeContent>;
+  lang: Locale;
+};
+
+export function FeaturedCollection({ homeContent, lang }: FeaturedCollectionProps) {
   return (
     <section id="collection" className="mx-auto w-full max-w-6xl px-6 pb-26 pt-16 lg:px-10">
-      <SectionHeading eyebrow="Featured Collection" title="Selected signatures" description={homeContent.intros.featured} />
+      <SectionHeading eyebrow={homeContent.featured.eyebrow} title={homeContent.featured.title} description={homeContent.featured.description} />
 
       <div className="surface-frame relative mt-12 aspect-[16/7] overflow-hidden rounded-[1.65rem] border border-[var(--color-line)]">
         <Image src={homeContent.visuals.featuredCard} alt="Hero ring featured collection card" fill sizes="(min-width: 1024px) 72rem, 100vw" className="object-cover object-center opacity-72" />
@@ -34,7 +40,7 @@ export function FeaturedCollection() {
         ))}
       </div>
       <div className="mt-8">
-        <LinkArrow href="#">View full collection</LinkArrow>
+        <LinkArrow href={`/${lang}/collection`}>{homeContent.featured.viewCollection}</LinkArrow>
       </div>
     </section>
   );

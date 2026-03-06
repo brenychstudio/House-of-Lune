@@ -1,7 +1,7 @@
 import Image from "next/image";
 
-import { homeContent } from "@/content/home";
 import type { HeroPhase } from "@/components/hero/HeroTimeline";
+import { assets } from "@/content/assets";
 
 type HeroFallbackProps = {
   phase: HeroPhase;
@@ -64,7 +64,7 @@ export function HeroFallback({ phase }: HeroFallbackProps) {
   return (
     <div className="absolute inset-0 overflow-hidden rounded-[1.8rem]">
       <Image
-        src={homeContent.hero.visuals.atmosphericBackground}
+        src={assets.home.hero.atmosphericBackground}
         alt=""
         fill
         priority
@@ -74,7 +74,7 @@ export function HeroFallback({ phase }: HeroFallbackProps) {
 
       <div className="absolute inset-[10%_11%_14%] overflow-hidden rounded-[2rem] border border-[rgba(190,198,212,0.2)]/80 bg-[rgba(2,4,10,0.35)]">
         <Image
-          src={homeContent.hero.visuals.poster}
+          src={assets.home.hero.poster}
           alt="Hero ring signature composition"
           fill
           priority
@@ -82,7 +82,7 @@ export function HeroFallback({ phase }: HeroFallbackProps) {
           className={`object-cover object-center transition-opacity duration-[1600ms] ease-[cubic-bezier(0.3,1,0.35,1)] ${visual.posterOpacity}`}
         />
         <Image
-          src={homeContent.hero.visuals.teaserStill}
+          src={assets.home.hero.teaserStill}
           alt=""
           fill
           sizes="(min-width: 1024px) 32vw, 72vw"
