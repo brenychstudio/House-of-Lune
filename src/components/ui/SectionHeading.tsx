@@ -11,8 +11,8 @@ export function SectionHeading({ eyebrow, title, description }: SectionHeadingPr
   return (
     <div className="max-w-3xl">
       {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
-      <h2 className="font-serif text-3xl leading-tight md:text-4xl">{title}</h2>
-      {description ? <p className="mt-5 text-base text-[var(--color-text-muted)] md:text-lg">{description}</p> : null}
+      <h2 className="font-serif text-[2rem] leading-[1.12] md:text-[2.9rem]">{title}</h2>
+      {description ? <p className="mt-5 max-w-2xl text-base text-[var(--color-text-muted)] md:text-lg">{description}</p> : null}
     </div>
   );
 }

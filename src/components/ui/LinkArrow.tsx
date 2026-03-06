@@ -7,7 +7,10 @@ type LinkArrowProps = {
 
 export function LinkArrow({ href, children }: LinkArrowProps) {
   return (
-    <a href={href} className="inline-flex items-center gap-2 text-sm uppercase tracking-[0.14em] text-[var(--color-text)] hover:text-[var(--color-accent)]">
+    <a
+      href={href}
+      className="inline-flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.16em] text-[var(--color-text)] transition-all duration-300 hover:gap-3 hover:text-[var(--color-accent)]"
+    >
       <span>{children}</span>
       <span aria-hidden>→</span>
     </a>
