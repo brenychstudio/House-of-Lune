@@ -38,12 +38,12 @@ export function HeroStage({ phase }: HeroStageProps) {
 
       {showCanvas ? (
         <div
-          className={`absolute inset-[10%_11%_14%] z-10 overflow-hidden rounded-[2rem] border border-[rgba(190,198,212,0.18)]/70 transition-opacity duration-[1200ms] ease-[cubic-bezier(0.22,1,0.28,1)] ${isSceneReady ? "opacity-94" : "opacity-0"}`}
+          className={`absolute inset-[10%_11%_14%] z-10 overflow-hidden rounded-[2rem] border border-[rgba(176,186,202,0.16)]/70 transition-opacity duration-[1400ms] ease-[cubic-bezier(0.22,1,0.28,1)] ${isSceneReady ? "opacity-92" : "opacity-0"}`}
         >
           <SceneCanvas onReady={() => setIsSceneReady(true)}>
             <HeroScene phase={phase} pointer={pointer} />
           </SceneCanvas>
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(5,7,12,0.04),rgba(2,3,8,0.38))]" />
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(5,7,12,0.05),rgba(2,3,8,0.44))]" />
         </div>
       ) : null}
     </div>
