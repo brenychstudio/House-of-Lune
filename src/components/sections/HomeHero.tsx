@@ -1,7 +1,11 @@
 import { HeroShell } from "@/components/hero/HeroShell";
-import { homeContent } from "@/content/home";
+import { getHomeContent } from "@/content/home";
 
-export function HomeHero() {
+type HomeHeroProps = {
+  homeContent: ReturnType<typeof getHomeContent>;
+};
+
+export function HomeHero({ homeContent }: HomeHeroProps) {
   return (
     <section>
       <HeroShell

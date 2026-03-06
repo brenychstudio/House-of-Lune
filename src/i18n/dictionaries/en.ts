@@ -1,0 +1,113 @@
+import type { Dictionary } from "@/types/i18n";
+
+export const en: Dictionary = {
+  site: {
+    brand: "House of Lune",
+    navigation: {
+      collection: "Collection",
+      craft: "Craft",
+      maison: "Maison",
+      journal: "Journal",
+      contact: "Contact",
+    },
+    cta: {
+      inquiry: "Private Inquiry",
+      explore: "Explore Collection",
+      appointment: "Request Appointment",
+    },
+    footer: {
+      privacy: "Privacy",
+      terms: "Terms",
+      contact: "Contact",
+    },
+    languages: {
+      en: "EN",
+      fr: "FR",
+      es: "ES",
+    },
+  },
+  home: {
+    hero: {
+      brandLine: "Haute Joaillerie Maison",
+      headline: "Jewels composed in shadow, light, and deliberate silence.",
+      body: "House of Lune presents contemporary high jewelry shaped by architectural form, lunar restraint, and a measured sense of reveal.",
+      chamberLabel: "Cinematic Chamber · Study I",
+      chamberNote: "The object stage remains intentionally veiled. Light, contour, and atmosphere are composed in advance of the reveal.",
+    },
+    manifesto:
+      "We believe rarity is not announced. It is recognized in proportion, in patience, and in pieces that remain quietly unforgettable.",
+    featured: {
+      eyebrow: "Featured Collection",
+      title: "Selected signatures",
+      description: "A first curation, arranged as chapters rather than a catalogue.",
+      viewCollection: "View full collection",
+    },
+    craft: {
+      eyebrow: "Craft in Detail",
+      title: "Precision at every scale",
+      description: "From stone to silhouette, each decision is exacting and quietly observed.",
+      bodyOne: "Stones are selected for character before carat. Mounts are refined until structure disappears behind light.",
+      bodyTwo: "Each piece progresses through intimate stages of prototyping, finishing, and final balancing in the atelier.",
+      detailLine: "Material study · Setting balance · Light calibration",
+    },
+    signature: {
+      eyebrow: "Signature Story",
+      title: "Lines that return across collections",
+      description: "A campaign chapter on recurring lines, intervals, and inherited tension.",
+      body: "Our signatures are never motifs applied for recognition, but structural ideas revisited over time: tension, interval, and asymmetry resolved into balance.",
+      cta: "Read the house story",
+    },
+    maison: {
+      eyebrow: "Maison",
+      title: "A discreet house, internationally placed",
+      description: "Inside the maison where intentions are tested, then made lasting.",
+      body: "Appointments are offered in private salons and through select partner spaces in Paris, Geneva, and Tokyo.",
+      cta: "Discover the maison",
+    },
+    journal: {
+      eyebrow: "Journal",
+      title: "Editorial notes from the house",
+      description: "Notes on material, culture, and contemporary adornment from the house.",
+      entries: [
+        "On the language of antique cuts in contemporary settings",
+        "Why proportion determines perceived brilliance",
+        "A quiet guide to collecting modern high jewelry",
+      ],
+      entryTag: "Essay",
+      cta: "Open journal",
+    },
+    inquiry: {
+      eyebrow: "Private Inquiry",
+      heading: "Begin a private conversation",
+      body: "For bespoke commissions, salon appointments, and discreet guidance from the house.",
+      cta: "Arrange Inquiry",
+    },
+  },
+  pages: {
+    placeholderLabel: "Localized page",
+    collection: {
+      title: "Collection",
+      description: "A curated view of signatures and one-of-one commissions is coming shortly.",
+    },
+    maison: {
+      title: "Maison",
+      description: "An inside look at the house, ateliers, and private salon experience.",
+    },
+    craftsmanship: {
+      title: "Craftsmanship",
+      description: "Material studies, setting notes, and finishing rituals from the atelier.",
+    },
+    journal: {
+      title: "Journal",
+      description: "Editorial essays on jewelry culture, form, and contemporary collecting.",
+    },
+    contact: {
+      title: "Contact",
+      description: "Share your request for appointments, commissions, and private consultations.",
+    },
+    piece: {
+      titlePrefix: "Piece",
+      description: "Detailed piece pages are being prepared in the next chapter.",
+    },
+  },
+};
