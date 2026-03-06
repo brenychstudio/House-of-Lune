@@ -1,0 +1,48 @@
+import type { Piece } from "@/types/piece";
+
+export const featuredPieces: Piece[] = [
+  {
+    slug: "nocturne-halo",
+    category: "Ring",
+    name: "Nocturne Halo",
+    headline: "A sculpted arc balancing luminous tension.",
+    material: "18k blackened white gold",
+    stone: "Oval-cut diamond",
+    availabilityMode: "By Appointment",
+    heroImage: "/images/pieces/nocturne-halo.jpg",
+    gallery: ["/images/pieces/nocturne-halo-1.jpg", "/images/pieces/nocturne-halo-2.jpg"],
+  },
+  {
+    slug: "eclipse-line",
+    category: "Necklace",
+    name: "Eclipse Line",
+    headline: "Graduated brilliance in a restrained horizon.",
+    material: "Platinum",
+    stone: "White diamonds",
+    availabilityMode: "Limited Series",
+    heroImage: "/images/pieces/eclipse-line.jpg",
+    gallery: ["/images/pieces/eclipse-line-1.jpg", "/images/pieces/eclipse-line-2.jpg"],
+  },
+  {
+    slug: "velour-cascade",
+    category: "Earrings",
+    name: "Velour Cascade",
+    headline: "Fine motion articulated with vertical clarity.",
+    material: "18k yellow gold",
+    stone: "Champagne diamonds",
+    availabilityMode: "By Appointment",
+    heroImage: "/images/pieces/velour-cascade.jpg",
+    gallery: ["/images/pieces/velour-cascade-1.jpg", "/images/pieces/velour-cascade-2.jpg"],
+  },
+  {
+    slug: "astral-cuff",
+    category: "Bracelet",
+    name: "Astral Cuff",
+    headline: "A clean architectural cuff with hidden fire.",
+    material: "18k rose gold",
+    stone: "Baguette diamonds",
+    availabilityMode: "Private Commission",
+    heroImage: "/images/pieces/astral-cuff.jpg",
+    gallery: ["/images/pieces/astral-cuff-1.jpg", "/images/pieces/astral-cuff-2.jpg"],
+  },
+];
