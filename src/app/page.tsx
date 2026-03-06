@@ -11,7 +11,9 @@ import { SignatureStory } from "@/components/sections/SignatureStory";
 export default function Home() {
   return (
     <PageShell>
-      <HomeHero />
+      <div className="bg-[radial-gradient(circle_at_50%_8%,rgba(255,255,255,0.06),transparent_50%)]">
+        <HomeHero />
+      </div>
       <IntroManifesto />
       <FeaturedCollection />
       <div className="bg-[linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0))]">
