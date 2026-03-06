@@ -14,7 +14,7 @@ export function HeroProxyObject({ intensity, contourStrength }: HeroProxyObjectP
   const stone = useMemo(() => createHeroStoneMaterial(intensity), [intensity]);
 
   return (
-    <group rotation={[0.34, 0.38, 0.08]}>
+    <group rotation={[0.34, 0.32, 0.08]}>
       <mesh>
         <torusGeometry args={[0.8, 0.09, 48, 180]} />
         <meshStandardMaterial {...metal} />
@@ -23,10 +23,10 @@ export function HeroProxyObject({ intensity, contourStrength }: HeroProxyObjectP
       <mesh position={[0, 0.01, 0.02]} scale={[1, 0.82, 1]}>
         <torusGeometry args={[0.42, 0.045, 32, 128]} />
         <meshStandardMaterial
-          color="#353d4d"
-          metalness={0.34}
-          roughness={Math.max(0.34, 0.56 - contourStrength * 0.18)}
-          envMapIntensity={0.24 + contourStrength * 0.16}
+          color="#3b4354"
+          metalness={0.36}
+          roughness={Math.max(0.32, 0.54 - contourStrength * 0.16)}
+          envMapIntensity={0.28 + contourStrength * 0.16}
         />
       </mesh>
 

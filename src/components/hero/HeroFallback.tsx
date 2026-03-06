@@ -5,6 +5,7 @@ import { assets } from "@/content/assets";
 
 type HeroFallbackProps = {
   phase: HeroPhase;
+  liveActive?: boolean;
 };
 
 const phaseVisual = {
@@ -58,8 +59,11 @@ const phaseVisual = {
   },
 } as const;
 
-export function HeroFallback({ phase }: HeroFallbackProps) {
+export function HeroFallback({ phase, liveActive = false }: HeroFallbackProps) {
   const visual = phaseVisual[phase];
+  const chamberOpacity = liveActive ? "opacity-26" : visual.chamberOpacity;
+  const posterOpacity = liveActive ? "opacity-28" : visual.posterOpacity;
+  const traceOpacity = liveActive ? "opacity-12" : visual.traceOpacity;
 
   return (
     <div className="absolute inset-0 overflow-hidden rounded-[1.8rem]">
@@ -69,7 +73,7 @@ export function HeroFallback({ phase }: HeroFallbackProps) {
         fill
         priority
         sizes="(min-width: 1024px) 42vw, 100vw"
-        className={`object-cover object-center transition-opacity duration-[1700ms] ease-[cubic-bezier(0.3,1,0.35,1)] ${visual.chamberOpacity}`}
+        className={`object-cover object-center transition-opacity duration-[1700ms] ease-[cubic-bezier(0.3,1,0.35,1)] ${chamberOpacity}`}
       />
 
       <div className="absolute inset-[10%_11%_14%] overflow-hidden rounded-[2rem] border border-[rgba(190,198,212,0.16)]/80 bg-[rgba(2,4,10,0.45)]">
@@ -79,7 +83,7 @@ export function HeroFallback({ phase }: HeroFallbackProps) {
           fill
           priority
           sizes="(min-width: 1024px) 32vw, 72vw"
-          className={`object-cover object-center transition-opacity duration-[1600ms] ease-[cubic-bezier(0.3,1,0.35,1)] ${visual.posterOpacity}`}
+          className={`object-cover object-center transition-opacity duration-[1600ms] ease-[cubic-bezier(0.3,1,0.35,1)] ${posterOpacity}`}
         />
         <Image
           src={assets.home.hero.teaserStill}
@@ -92,7 +96,7 @@ export function HeroFallback({ phase }: HeroFallbackProps) {
       </div>
 
       <div
-        className={`absolute left-1/2 top-1/2 h-[62%] w-[45%] -translate-x-1/2 -translate-y-1/2 rounded-[49%] border border-[rgba(190,198,212,0.16)] transition-opacity duration-[1200ms] ease-[cubic-bezier(0.22,1,0.28,1)] ${visual.traceOpacity}`}
+        className={`absolute left-1/2 top-1/2 h-[62%] w-[45%] -translate-x-1/2 -translate-y-1/2 rounded-[49%] border border-[rgba(190,198,212,0.16)] transition-opacity duration-[1200ms] ease-[cubic-bezier(0.22,1,0.28,1)] ${traceOpacity}`}
       />
 
       <div

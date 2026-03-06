@@ -22,18 +22,21 @@ export function HeroLights({ phase, glintBoost }: HeroLightsProps) {
 
   useFrame(({ clock }) => {
     const tone = getHeroStageTone(phase);
-    const breath = phase === "idle" ? Math.sin(clock.getElapsedTime() * 0.18) * 0.012 : 0;
+    const breath = phase === "idle" ? Math.sin(clock.getElapsedTime() * 0.18) * 0.01 : 0;
+    const isFinalState = phase === "settle" || phase === "copy" || phase === "idle";
 
     if (groupRef.current) {
       groupRef.current.position.y = breath * 0.2;
     }
 
     if (rimRef.current) {
-      rimRef.current.intensity = damp(rimRef.current.intensity, 0.16 + tone.rim * 0.55, 0.06);
+      const rimFloor = isFinalState ? 0.19 : 0.16;
+      rimRef.current.intensity = damp(rimRef.current.intensity, rimFloor + tone.rim * 0.55, 0.06);
     }
 
     if (fillRef.current) {
-      fillRef.current.intensity = damp(fillRef.current.intensity, 0.05 + tone.fill * 0.35 + breath, 0.05);
+      const fillFloor = isFinalState ? 0.065 : 0.05;
+      fillRef.current.intensity = damp(fillRef.current.intensity, fillFloor + tone.fill * 0.35 + breath, 0.05);
     }
 
     if (accentRef.current) {
@@ -42,7 +45,8 @@ export function HeroLights({ phase, glintBoost }: HeroLightsProps) {
     }
 
     if (floorRef.current) {
-      floorRef.current.intensity = damp(floorRef.current.intensity, 0.05 + tone.floor * 0.13, 0.05);
+      const floorFloor = isFinalState ? 0.06 : 0.05;
+      floorRef.current.intensity = damp(floorRef.current.intensity, floorFloor + tone.floor * 0.13, 0.05);
     }
   });
 
