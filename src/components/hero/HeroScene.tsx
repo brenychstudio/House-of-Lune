@@ -30,16 +30,23 @@ export function HeroScene({ phase, pointer }: HeroSceneProps) {
     const elapsed = clock.getElapsedTime();
 
     if (stageRef.current) {
-      const targetX = pointer.y * 0.02;
-      const targetY = pointer.x * 0.045;
+      const settleCalm = phase === "settle" || phase === "copy" || phase === "idle";
+      const parallaxFactor = settleCalm ? 0.45 : 1;
+      const targetX = pointer.y * 0.02 * parallaxFactor;
+      const targetY = pointer.x * 0.045 * parallaxFactor;
       stageRef.current.rotation.x = damp(stageRef.current.rotation.x, targetX, 0.04);
       stageRef.current.rotation.y = damp(stageRef.current.rotation.y, targetY, 0.04);
     }
 
     if (proxyRef.current) {
-      const idleY = Math.sin(elapsed * 0.24) * 0.015;
-      proxyRef.current.position.y = MathUtils.lerp(proxyRef.current.position.y, idleY, 0.03);
-      proxyRef.current.rotation.y += 0.00045;
+      const isFinalState = phase === "settle" || phase === "copy" || phase === "idle";
+      const idleY = Math.sin(elapsed * 0.24) * (isFinalState ? 0.009 : 0.015);
+      const settleRotation = 0.24;
+      const orbitRotation = Math.sin(elapsed * 0.16) * 0.04;
+      const targetYRotation = isFinalState ? settleRotation : settleRotation + orbitRotation;
+
+      proxyRef.current.position.y = MathUtils.lerp(proxyRef.current.position.y, idleY, isFinalState ? 0.022 : 0.03);
+      proxyRef.current.rotation.y = damp(proxyRef.current.rotation.y, targetYRotation, isFinalState ? 0.04 : 0.025);
     }
   });
 

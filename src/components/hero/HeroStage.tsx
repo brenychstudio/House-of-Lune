@@ -33,17 +33,17 @@ export function HeroStage({ phase }: HeroStageProps) {
       onPointerLeave={() => setPointer({ x: 0, y: 0 })}
     >
       <div className="absolute inset-0 z-0">
-        <HeroFallback phase={phase} />
+        <HeroFallback phase={phase} liveActive={showCanvas && isSceneReady} />
       </div>
 
       {showCanvas ? (
         <div
-          className={`absolute inset-[10%_11%_14%] z-10 overflow-hidden rounded-[2rem] border border-[rgba(176,186,202,0.16)]/70 transition-opacity duration-[1400ms] ease-[cubic-bezier(0.22,1,0.28,1)] ${isSceneReady ? "opacity-92" : "opacity-0"}`}
+          className={`absolute inset-[10%_11%_14%] z-10 overflow-hidden rounded-[2rem] border border-[rgba(176,186,202,0.16)]/70 transition-opacity duration-[1400ms] ease-[cubic-bezier(0.22,1,0.28,1)] ${isSceneReady ? "opacity-100" : "opacity-0"}`}
         >
           <SceneCanvas onReady={() => setIsSceneReady(true)}>
             <HeroScene phase={phase} pointer={pointer} />
           </SceneCanvas>
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(5,7,12,0.05),rgba(2,3,8,0.44))]" />
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(5,7,12,0.03),rgba(2,3,8,0.32))]" />
         </div>
       ) : null}
     </div>

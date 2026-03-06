@@ -3,7 +3,7 @@ export type PointerParallax = {
   y: number;
 };
 
-const PARALLAX_LIMIT = 0.62;
+const PARALLAX_LIMIT = 0.46;
 
 export function toPointerParallax(clientX: number, clientY: number, width: number, height: number): PointerParallax {
   if (width <= 0 || height <= 0) {
