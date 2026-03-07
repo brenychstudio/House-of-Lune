@@ -7,13 +7,16 @@ export type Piece = {
   category: PieceCategory;
   name: string;
   headline: string;
+  shortDescription: string;
   material: string;
   stone: string;
+  edition: string;
   availabilityMode: AvailabilityMode;
   heroImage: string;
   featuredCardImage?: string;
   campaignImage?: string;
   onBodyImage?: string;
-  macroImages?: string[];
+  macroImages: string[];
   gallery: string[];
+  story?: string[];
 };

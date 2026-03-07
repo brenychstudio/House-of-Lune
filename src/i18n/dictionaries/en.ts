@@ -3,28 +3,10 @@ import type { Dictionary } from "@/types/i18n";
 export const en: Dictionary = {
   site: {
     brand: "House of Lune",
-    navigation: {
-      collection: "Collection",
-      craft: "Craft",
-      maison: "Maison",
-      journal: "Journal",
-      contact: "Contact",
-    },
-    cta: {
-      inquiry: "Private Inquiry",
-      explore: "Explore Collection",
-      appointment: "Request Appointment",
-    },
-    footer: {
-      privacy: "Privacy",
-      terms: "Terms",
-      contact: "Contact",
-    },
-    languages: {
-      en: "EN",
-      fr: "FR",
-      es: "ES",
-    },
+    navigation: { collection: "Collection", craft: "Craft", maison: "Maison", journal: "Journal", contact: "Contact" },
+    cta: { inquiry: "Private Inquiry", explore: "Explore Collection", appointment: "Request Appointment" },
+    footer: { privacy: "Privacy", terms: "Terms", contact: "Contact" },
+    languages: { en: "EN", fr: "FR", es: "ES" },
   },
   home: {
     hero: {
@@ -34,14 +16,8 @@ export const en: Dictionary = {
       chamberLabel: "Cinematic Chamber · Study I",
       chamberNote: "The object stage remains intentionally veiled. Light, contour, and atmosphere are composed in advance of the reveal.",
     },
-    manifesto:
-      "We believe rarity is not announced. It is recognized in proportion, in patience, and in pieces that remain quietly unforgettable.",
-    featured: {
-      eyebrow: "Featured Collection",
-      title: "Selected signatures",
-      description: "A first curation, arranged as chapters rather than a catalogue.",
-      viewCollection: "View full collection",
-    },
+    manifesto: "We believe rarity is not announced. It is recognized in proportion, in patience, and in pieces that remain quietly unforgettable.",
+    featured: { eyebrow: "Featured Collection", title: "Selected signatures", description: "A first curation, arranged as chapters rather than a catalogue.", viewCollection: "View full collection" },
     craft: {
       eyebrow: "Craft in Detail",
       title: "Precision at every scale",
@@ -68,11 +44,7 @@ export const en: Dictionary = {
       eyebrow: "Journal",
       title: "Editorial notes from the house",
       description: "Notes on material, culture, and contemporary adornment from the house.",
-      entries: [
-        "On the language of antique cuts in contemporary settings",
-        "Why proportion determines perceived brilliance",
-        "A quiet guide to collecting modern high jewelry",
-      ],
+      entries: ["On the language of antique cuts in contemporary settings", "Why proportion determines perceived brilliance", "A quiet guide to collecting modern high jewelry"],
       entryTag: "Essay",
       cta: "Open journal",
     },
@@ -86,28 +58,28 @@ export const en: Dictionary = {
   pages: {
     placeholderLabel: "Localized page",
     collection: {
-      title: "Collection",
-      description: "A curated view of signatures and one-of-one commissions is coming shortly.",
+      eyebrow: "Collection",
+      title: "A curated selection of luminous signatures",
+      description: "Presented as an editorial suite of rare objects, each piece is composed around proportion, restraint, and intimacy with light.",
+      editorialLine: "Selected pieces · Salon appointments · Private guidance",
     },
-    maison: {
-      title: "Maison",
-      description: "An inside look at the house, ateliers, and private salon experience.",
-    },
-    craftsmanship: {
-      title: "Craftsmanship",
-      description: "Material studies, setting notes, and finishing rituals from the atelier.",
-    },
-    journal: {
-      title: "Journal",
-      description: "Editorial essays on jewelry culture, form, and contemporary collecting.",
-    },
-    contact: {
-      title: "Contact",
-      description: "Share your request for appointments, commissions, and private consultations.",
-    },
+    maison: { title: "Maison", description: "An inside look at the house, ateliers, and private salon experience." },
+    craftsmanship: { title: "Craftsmanship", description: "Material studies, setting notes, and finishing rituals from the atelier." },
+    journal: { title: "Journal", description: "Editorial essays on jewelry culture, form, and contemporary collecting." },
+    contact: { title: "Contact", description: "Share your request for appointments, commissions, and private consultations." },
     piece: {
       titlePrefix: "Piece",
       description: "Detailed piece pages are being prepared in the next chapter.",
+      galleryTitle: "Image chapters",
+      storyTitle: "Story & craft",
+      labels: { material: "Material", stone: "Stone", edition: "Edition", availability: "Availability" },
+      inquiry: {
+        eyebrow: "Private Inquiry",
+        title: "Request an appointment or private viewing",
+        description: "For availability details, salon appointments, and bespoke adaptations, a house advisor will respond discreetly.",
+        primaryCta: "Request Appointment",
+        secondaryCta: "Inquire Availability",
+      },
     },
   },
 };
