@@ -3,14 +3,11 @@ import Image from "next/image";
 import { getHomeContent } from "@/content/home";
 import { LinkArrow } from "@/components/ui/LinkArrow";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import type { Locale } from "@/i18n/config";
-
 type JournalPreviewProps = {
   homeContent: ReturnType<typeof getHomeContent>;
-  lang: Locale;
 };
 
-export function JournalPreview({ homeContent, lang }: JournalPreviewProps) {
+export function JournalPreview({ homeContent }: JournalPreviewProps) {
   return (
     <section id="journal" className="mx-auto w-full max-w-6xl px-6 pb-18 pt-24 lg:px-10">
       <SectionHeading eyebrow={homeContent.journal.eyebrow} title={homeContent.journal.title} description={homeContent.journal.description} />
@@ -27,7 +24,7 @@ export function JournalPreview({ homeContent, lang }: JournalPreviewProps) {
         ))}
       </ul>
       <div className="mt-8">
-        <LinkArrow href={`/${lang}/journal`}>{homeContent.journal.cta}</LinkArrow>
+        <LinkArrow href={homeContent.links.journal}>{homeContent.journal.cta}</LinkArrow>
       </div>
     </section>
   );

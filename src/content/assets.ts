@@ -54,8 +54,21 @@ export const assets = {
   },
   maison: {
     atelierNocturne: "/media/maison/atelier/hol-maison-atelier-nocturne-3x2-01.png",
+    salonPortrait: heroRingOnBody,
+    salonWide: heroRingCampaignStillLife,
+  },
+  craft: {
+    processHero: heroRingMacroBand,
+    processChapterOne: heroRingMacroGemstone,
+    processChapterTwo: heroRingMacroBand,
+    materialStudyWide: heroRingCampaignStillLife,
+    precisionDetail: heroRingGallerySideContour,
   },
   journal: {
     campaignWideFrame: "/media/journal/campaign-01/hol-campaign-01-wide-frame-21x9-01.png",
+    featureFrame: heroRingCampaignStillLife,
+    entryPortrait: heroRingOnBody,
+    entryMacro: heroRingMacroGemstone,
+    entryContour: heroRingGallerySideContour,
   },
 } as const;

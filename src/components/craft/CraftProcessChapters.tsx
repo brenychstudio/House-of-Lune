@@ -1,0 +1,31 @@
+import Image from "next/image";
+
+type Chapter = {
+  title: string;
+  body: string;
+  image: string;
+};
+
+export function CraftProcessChapters({ title, chapters }: { title: string; chapters: Chapter[] }) {
+  return (
+    <section className="section-divider py-20">
+      <div className="mx-auto max-w-6xl px-6 lg:px-10">
+        <h2 className="font-serif text-3xl">{title}</h2>
+        <div className="mt-8 grid gap-6 md:grid-cols-3">
+          {chapters.map((chapter) => (
+            <article key={chapter.title} className="overflow-hidden rounded-2xl border border-[var(--color-line)] bg-[var(--color-surface)]">
+              <div className="relative aspect-[4/5]">
+                <Image src={chapter.image} alt={chapter.title} fill sizes="(min-width: 768px) 30vw, 100vw" className="object-cover opacity-76" />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,3,8,0.05),rgba(2,3,8,0.58))]" />
+              </div>
+              <div className="p-5">
+                <h3 className="font-serif text-2xl">{chapter.title}</h3>
+                <p className="mt-2 text-[var(--color-text-muted)]">{chapter.body}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
