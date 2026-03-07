@@ -3,23 +3,9 @@ import type { Dictionary } from "@/types/i18n";
 export const fr: Dictionary = {
   site: {
     brand: "House of Lune",
-    navigation: {
-      collection: "Collection",
-      craft: "Savoir-faire",
-      maison: "Maison",
-      journal: "Journal",
-      contact: "Contact",
-    },
-    cta: {
-      inquiry: "Demande privée",
-      explore: "Explorer la collection",
-      appointment: "Demander un rendez-vous",
-    },
-    footer: {
-      privacy: "Confidentialité",
-      terms: "Conditions",
-      contact: "Contact",
-    },
+    navigation: { collection: "Collection", craft: "Savoir-faire", maison: "Maison", journal: "Journal", contact: "Contact" },
+    cta: { inquiry: "Demande privée", explore: "Explorer la collection", appointment: "Demander un rendez-vous" },
+    footer: { privacy: "Confidentialité", terms: "Conditions", contact: "Contact" },
     languages: { en: "EN", fr: "FR", es: "ES" },
   },
   home: {
@@ -30,14 +16,8 @@ export const fr: Dictionary = {
       chamberLabel: "Chambre cinématique · Étude I",
       chamberNote: "La scène de l'objet demeure volontairement voilée. La lumière, le contour et l'atmosphère sont composés avant la révélation.",
     },
-    manifesto:
-      "Nous pensons que la rareté ne se proclame pas. Elle se reconnaît dans la proportion, la patience et des pièces discrètement inoubliables.",
-    featured: {
-      eyebrow: "Collection à l'honneur",
-      title: "Signatures choisies",
-      description: "Une première curation pensée en chapitres plutôt qu'en catalogue.",
-      viewCollection: "Voir toute la collection",
-    },
+    manifesto: "Nous pensons que la rareté ne se proclame pas. Elle se reconnaît dans la proportion, la patience et des pièces discrètement inoubliables.",
+    featured: { eyebrow: "Collection à l'honneur", title: "Signatures choisies", description: "Une première curation pensée en chapitres plutôt qu'en catalogue.", viewCollection: "Voir toute la collection" },
     craft: {
       eyebrow: "Savoir-faire en détail",
       title: "Précision à chaque échelle",
@@ -81,11 +61,29 @@ export const fr: Dictionary = {
   },
   pages: {
     placeholderLabel: "Page localisée",
-    collection: { title: "Collection", description: "Une vue organisée des signatures et des commandes uniques arrive prochainement." },
+    collection: {
+      eyebrow: "Collection",
+      title: "Une sélection éditoriale de signatures lumineuses",
+      description: "Présentée comme une suite de pièces rares, chaque création dialogue entre proportion, retenue et lumière maîtrisée.",
+      editorialLine: "Pièces sélectionnées · Rendez-vous salon · Accompagnement privé",
+    },
     maison: { title: "Maison", description: "Une immersion dans la maison, les ateliers et l'expérience salon privé." },
     craftsmanship: { title: "Savoir-faire", description: "Études de matière, notes de sertissage et rituels de finition de l'atelier." },
     journal: { title: "Journal", description: "Essais éditoriaux sur la culture joaillière, la forme et la collection contemporaine." },
     contact: { title: "Contact", description: "Partagez votre demande pour rendez-vous, commissions et consultations privées." },
-    piece: { titlePrefix: "Pièce", description: "Les pages détaillées des pièces sont en préparation pour le prochain chapitre." },
+    piece: {
+      titlePrefix: "Pièce",
+      description: "Les pages détaillées des pièces sont en préparation pour le prochain chapitre.",
+      galleryTitle: "Chapitres d'images",
+      storyTitle: "Histoire & savoir-faire",
+      labels: { material: "Matière", stone: "Pierre", edition: "Édition", availability: "Disponibilité" },
+      inquiry: {
+        eyebrow: "Demande privée",
+        title: "Demander un rendez-vous ou une présentation privée",
+        description: "Pour les disponibilités, les rendez-vous en salon ou une variation sur mesure, un conseiller de la maison vous répondra avec discrétion.",
+        primaryCta: "Demander un rendez-vous",
+        secondaryCta: "Demander la disponibilité",
+      },
+    },
   },
 };

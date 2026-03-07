@@ -3,23 +3,9 @@ import type { Dictionary } from "@/types/i18n";
 export const es: Dictionary = {
   site: {
     brand: "House of Lune",
-    navigation: {
-      collection: "Colección",
-      craft: "Oficio",
-      maison: "Maison",
-      journal: "Journal",
-      contact: "Contacto",
-    },
-    cta: {
-      inquiry: "Consulta privada",
-      explore: "Explorar colección",
-      appointment: "Solicitar cita",
-    },
-    footer: {
-      privacy: "Privacidad",
-      terms: "Términos",
-      contact: "Contacto",
-    },
+    navigation: { collection: "Colección", craft: "Oficio", maison: "Maison", journal: "Journal", contact: "Contacto" },
+    cta: { inquiry: "Consulta privada", explore: "Explorar colección", appointment: "Solicitar cita" },
+    footer: { privacy: "Privacidad", terms: "Términos", contact: "Contacto" },
     languages: { en: "EN", fr: "FR", es: "ES" },
   },
   home: {
@@ -30,14 +16,8 @@ export const es: Dictionary = {
       chamberLabel: "Cámara cinematográfica · Estudio I",
       chamberNote: "La escena del objeto permanece velada intencionalmente. La luz, el contorno y la atmósfera se componen antes de la revelación.",
     },
-    manifesto:
-      "Creemos que la rareza no se anuncia. Se reconoce en la proporción, en la paciencia y en piezas que permanecen silenciosamente inolvidables.",
-    featured: {
-      eyebrow: "Colección destacada",
-      title: "Firmas seleccionadas",
-      description: "Una primera curaduría organizada como capítulos y no como catálogo.",
-      viewCollection: "Ver colección completa",
-    },
+    manifesto: "Creemos que la rareza no se anuncia. Se reconoce en la proporción, en la paciencia y en piezas que permanecen silenciosamente inolvidables.",
+    featured: { eyebrow: "Colección destacada", title: "Firmas seleccionadas", description: "Una primera curaduría organizada como capítulos y no como catálogo.", viewCollection: "Ver colección completa" },
     craft: {
       eyebrow: "Oficio en detalle",
       title: "Precisión en cada escala",
@@ -81,11 +61,29 @@ export const es: Dictionary = {
   },
   pages: {
     placeholderLabel: "Página localizada",
-    collection: { title: "Colección", description: "Pronto llegará una vista curada de firmas y comisiones únicas." },
+    collection: {
+      eyebrow: "Colección",
+      title: "Una selección curada de firmas luminosas",
+      description: "Presentada como una suite editorial de objetos raros, cada pieza se compone entre proporción, contención y cercanía a la luz.",
+      editorialLine: "Piezas seleccionadas · Citas en salón · Acompañamiento privado",
+    },
     maison: { title: "Maison", description: "Una mirada al interior de la casa, ateliers y experiencia de salón privado." },
     craftsmanship: { title: "Oficio", description: "Estudios de material, notas de engaste y rituales de acabado del atelier." },
     journal: { title: "Journal", description: "Ensayos editoriales sobre cultura joyera, forma y coleccionismo contemporáneo." },
     contact: { title: "Contacto", description: "Comparte tu solicitud para citas, comisiones y consultas privadas." },
-    piece: { titlePrefix: "Pieza", description: "Las páginas detalladas de piezas se están preparando para el próximo capítulo." },
+    piece: {
+      titlePrefix: "Pieza",
+      description: "Las páginas detalladas de piezas se están preparando para el próximo capítulo.",
+      galleryTitle: "Capítulos de imagen",
+      storyTitle: "Historia y oficio",
+      labels: { material: "Material", stone: "Piedra", edition: "Edición", availability: "Disponibilidad" },
+      inquiry: {
+        eyebrow: "Consulta privada",
+        title: "Solicitar cita o presentación privada",
+        description: "Para detalles de disponibilidad, citas en salón o una adaptación a medida, un asesor de la maison responderá con discreción.",
+        primaryCta: "Solicitar cita",
+        secondaryCta: "Consultar disponibilidad",
+      },
+    },
   },
 };
