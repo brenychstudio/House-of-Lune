@@ -39,9 +39,9 @@ export default async function LocaleHomePage({ params }: LocaleHomePageProps) {
       </div>
       <SignatureStory homeContent={homeContent} lang={lang} />
       <div className="bg-[linear-gradient(180deg,rgba(255,255,255,0.012),rgba(255,255,255,0))]">
-        <MaisonPreview homeContent={homeContent} lang={lang} />
+        <MaisonPreview homeContent={homeContent} />
       </div>
-      <JournalPreview homeContent={homeContent} lang={lang} />
+      <JournalPreview homeContent={homeContent} />
       <PrivateInquiry homeContent={homeContent} lang={lang} />
     </PageShell>
   );

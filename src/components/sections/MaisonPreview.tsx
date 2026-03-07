@@ -3,14 +3,11 @@ import Image from "next/image";
 import { getHomeContent } from "@/content/home";
 import { LinkArrow } from "@/components/ui/LinkArrow";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import type { Locale } from "@/i18n/config";
-
 type MaisonPreviewProps = {
   homeContent: ReturnType<typeof getHomeContent>;
-  lang: Locale;
 };
 
-export function MaisonPreview({ homeContent, lang }: MaisonPreviewProps) {
+export function MaisonPreview({ homeContent }: MaisonPreviewProps) {
   return (
     <section id="maison" className="section-divider py-22">
       <div className="mx-auto grid w-full max-w-6xl gap-8 px-6 lg:grid-cols-[1fr_1fr] lg:px-10">
@@ -22,7 +19,7 @@ export function MaisonPreview({ homeContent, lang }: MaisonPreviewProps) {
           </div>
           <p>{homeContent.maison.body}</p>
           <div className="mt-6">
-            <LinkArrow href={`/${lang}/maison`}>{homeContent.maison.cta}</LinkArrow>
+            <LinkArrow href={homeContent.links.maison}>{homeContent.maison.cta}</LinkArrow>
           </div>
         </div>
       </div>

@@ -27,6 +27,10 @@ export function getHomeContent(dictionary: Dictionary, lang: Locale) {
     maison: dictionary.home.maison,
     journal: dictionary.home.journal,
     inquiry: dictionary.home.inquiry,
+    links: {
+      maison: `/${lang}/maison`,
+      journal: `/${lang}/journal`,
+    },
     visuals: {
       featuredCard: assets.pieces.heroRing.featuredCard,
       craft: {

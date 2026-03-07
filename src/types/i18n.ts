@@ -84,9 +84,36 @@ export type Dictionary = {
       description: string;
       editorialLine: string;
     };
-    maison: { title: string; description: string };
-    craftsmanship: { title: string; description: string };
-    journal: { title: string; description: string };
+    maison: {
+      title: string;
+      description: string;
+      heroEyebrow: string;
+      philosophyTitle: string;
+      materialLanguageTitle: string;
+      atelierPreviewTitle: string;
+      ctaCollection: string;
+      ctaInquiry: string;
+    };
+    craftsmanship: {
+      title: string;
+      description: string;
+      heroEyebrow: string;
+      processTitle: string;
+      materialStudyTitle: string;
+      precisionNotesTitle: string;
+      ctaCollection: string;
+      ctaInquiry: string;
+    };
+    journal: {
+      title: string;
+      description: string;
+      heroEyebrow: string;
+      featuredLabel: string;
+      latestLabel: string;
+      entryReadLabel: string;
+      ctaMaison: string;
+      ctaCollection: string;
+    };
     contact: { title: string; description: string };
     piece: {
       titlePrefix: string;
