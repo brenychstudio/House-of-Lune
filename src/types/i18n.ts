@@ -74,7 +74,9 @@ export type Dictionary = {
       heading: string;
       body: string;
       cta: string;
+      secondaryCta: string;
     };
+
   };
   pages: {
     placeholderLabel: string;
@@ -114,7 +116,42 @@ export type Dictionary = {
       ctaMaison: string;
       ctaCollection: string;
     };
-    contact: { title: string; description: string };
+    contact: {
+      title: string;
+      description: string;
+      intro: string;
+      optionsTitle: string;
+      formTitle: string;
+      formDescription: string;
+      detailsTitle: string;
+      detailsDescription: string;
+      appointmentTitle: string;
+      appointmentDescription: string;
+      appointmentCta: string;
+      modes: {
+        privateViewing: string;
+        availability: string;
+        bespoke: string;
+        appointment: string;
+      };
+      modeDescriptions: {
+        privateViewing: string;
+        availability: string;
+        bespoke: string;
+        appointment: string;
+      };
+      form: {
+        name: string;
+        email: string;
+        inquiryType: string;
+        piece: string;
+        timing: string;
+        message: string;
+        submit: string;
+        success: string;
+        error: string;
+      };
+    };
     piece: {
       titlePrefix: string;
       description: string;

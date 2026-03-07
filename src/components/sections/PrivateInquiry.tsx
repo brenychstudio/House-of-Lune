@@ -14,8 +14,11 @@ export function PrivateInquiry({ homeContent, lang }: PrivateInquiryProps) {
       <div className="mx-auto w-full max-w-6xl px-6 lg:px-10">
         <div className="surface-frame rounded-3xl px-8 py-12">
           <SectionHeading eyebrow={homeContent.inquiry.eyebrow} title={homeContent.inquiry.heading} description={homeContent.inquiry.body} />
-          <div className="mt-8">
-            <Button href={`/${lang}/contact`}>{homeContent.inquiry.cta}</Button>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Button href={`/${lang}/contact?type=appointment`}>{homeContent.inquiry.cta}</Button>
+            <Button href={`/${lang}/contact?type=bespoke`} variant="outline">
+              {homeContent.inquiry.secondaryCta}
+            </Button>
           </div>
         </div>
       </div>

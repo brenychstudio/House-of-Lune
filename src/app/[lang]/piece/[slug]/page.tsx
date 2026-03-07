@@ -30,7 +30,7 @@ export default async function PiecePage({ params }: { params: Promise<{ lang: st
       <PieceSpecs piece={piece} dictionary={dictionary} />
       <PieceGallery piece={piece} dictionary={dictionary} />
       <PieceStory piece={piece} dictionary={dictionary} />
-      <PieceInquiry dictionary={dictionary} lang={lang} />
+      <PieceInquiry dictionary={dictionary} lang={lang} piece={piece} />
     </PageShell>
   );
 }
