@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { JournalFeature } from "@/components/journal/JournalFeature";
@@ -7,6 +8,21 @@ import { PageShell } from "@/components/layout/PageShell";
 import { getJournalContent } from "@/content/journal";
 import { isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
+import { buildPageMetadata } from "@/lib/seo/metadata";
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const { lang } = await params;
+  if (!isValidLocale(lang)) notFound();
+
+  const dictionary = await getDictionary(lang);
+
+  return buildPageMetadata({
+    lang,
+    path: "/journal",
+    title: dictionary.pages.journal.title,
+    description: dictionary.pages.journal.description,
+  });
+}
 
 export default async function JournalPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;

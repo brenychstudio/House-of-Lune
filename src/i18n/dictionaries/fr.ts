@@ -132,7 +132,7 @@ export const fr: Dictionary = {
     },
     piece: {
       titlePrefix: "Pièce",
-      description: "Les pages détaillées des pièces sont en préparation pour le prochain chapitre.",
+      description: "Les pages détaillées présentent chaque pièce à travers notes de matière, images et orientation de demande privée.",
       galleryTitle: "Chapitres d'images",
       storyTitle: "Histoire & savoir-faire",
       labels: { material: "Matière", stone: "Pierre", edition: "Édition", availability: "Disponibilité" },
