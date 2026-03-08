@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { PageShell } from "@/components/layout/PageShell";
@@ -8,6 +9,21 @@ import { MaisonPhilosophy } from "@/components/maison/MaisonPhilosophy";
 import { getMaisonContent } from "@/content/maison";
 import { isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
+import { buildPageMetadata } from "@/lib/seo/metadata";
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const { lang } = await params;
+  if (!isValidLocale(lang)) notFound();
+
+  const dictionary = await getDictionary(lang);
+
+  return buildPageMetadata({
+    lang,
+    path: "/maison",
+    title: dictionary.pages.maison.title,
+    description: dictionary.pages.maison.description,
+  });
+}
 
 export default async function MaisonPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;

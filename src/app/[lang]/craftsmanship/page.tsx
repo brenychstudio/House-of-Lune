@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { CraftHero } from "@/components/craft/CraftHero";
@@ -8,6 +9,21 @@ import { PageShell } from "@/components/layout/PageShell";
 import { getCraftContent } from "@/content/craft";
 import { isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
+import { buildPageMetadata } from "@/lib/seo/metadata";
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const { lang } = await params;
+  if (!isValidLocale(lang)) notFound();
+
+  const dictionary = await getDictionary(lang);
+
+  return buildPageMetadata({
+    lang,
+    path: "/craftsmanship",
+    title: dictionary.pages.craftsmanship.title,
+    description: dictionary.pages.craftsmanship.description,
+  });
+}
 
 export default async function CraftsmanshipPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;

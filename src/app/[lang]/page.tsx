@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { PageShell } from "@/components/layout/PageShell";
@@ -12,10 +13,25 @@ import { SignatureStory } from "@/components/sections/SignatureStory";
 import { getHomeContent } from "@/content/home";
 import { isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
+import { buildPageMetadata, getDefaultDescription } from "@/lib/seo/metadata";
 
 type LocaleHomePageProps = {
   params: Promise<{ lang: string }>;
 };
+
+export async function generateMetadata({ params }: LocaleHomePageProps): Promise<Metadata> {
+  const { lang } = await params;
+  if (!isValidLocale(lang)) notFound();
+
+  const dictionary = await getDictionary(lang);
+
+  return buildPageMetadata({
+    lang,
+    path: "",
+    title: dictionary.site.brand,
+    description: dictionary.home.hero.body || getDefaultDescription(lang),
+  });
+}
 
 export default async function LocaleHomePage({ params }: LocaleHomePageProps) {
   const { lang } = await params;

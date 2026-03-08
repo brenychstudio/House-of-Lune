@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 
+import { globalMetadata } from "@/lib/seo/metadata";
+
 import "./globals.css";
 
-export const metadata: Metadata = {
-  title: "House of Lune",
-  description: "A premium digital maison for contemporary high jewelry.",
-};
+export const metadata: Metadata = globalMetadata;
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (

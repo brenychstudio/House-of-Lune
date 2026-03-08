@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { AppointmentNote } from "@/components/contact/AppointmentNote";
@@ -9,6 +10,21 @@ import { PageShell } from "@/components/layout/PageShell";
 import { getContactContent } from "@/content/contact";
 import { isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
+import { buildPageMetadata } from "@/lib/seo/metadata";
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const { lang } = await params;
+  if (!isValidLocale(lang)) notFound();
+
+  const dictionary = await getDictionary(lang);
+
+  return buildPageMetadata({
+    lang,
+    path: "/contact",
+    title: dictionary.pages.contact.title,
+    description: dictionary.pages.contact.description,
+  });
+}
 
 export default async function ContactPage({
   params,
