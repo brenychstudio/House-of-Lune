@@ -25,7 +25,7 @@ export function HeroOverlay({ phase, brandLine, headline, body, primaryCta, seco
   const progress = phaseIndex[phase];
 
   return (
-    <div className="max-w-3xl">
+    <div className="max-w-3xl lg:pb-4">
       <HeroCopy
         brandLine={brandLine}
         headline={headline}

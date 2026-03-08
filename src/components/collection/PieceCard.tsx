@@ -18,9 +18,9 @@ export function PieceCard({ piece, lang, dictionary }: PieceCardProps) {
           <Image src={piece.featuredCardImage ?? piece.heroImage} alt={piece.name} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover transition duration-500 group-hover:scale-[1.02]" />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,7,10,0.02),rgba(5,7,10,0.6))]" />
         </div>
-        <div className="space-y-3 p-6">
+        <div className="space-y-3 p-5 sm:p-6">
           <p className="text-[0.66rem] uppercase tracking-[0.17em] text-[var(--color-text-muted)]">{piece.category}</p>
-          <h2 className="font-serif text-2xl leading-tight">{piece.name}</h2>
+          <h2 className="font-serif text-[1.6rem] leading-tight sm:text-2xl">{piece.name}</h2>
           <p className="text-[var(--color-text-muted)]">{piece.shortDescription}</p>
           <p className="text-sm text-[var(--color-text-muted)]">
             {piece.material} · {piece.stone}

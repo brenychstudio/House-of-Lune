@@ -19,7 +19,7 @@ export function HeroShell({ brandLine, headline, body, primaryCta, secondaryCta,
   return (
     <HeroPhaseController>
       {({ phase }) => (
-        <div className="mx-auto grid w-full max-w-6xl gap-14 px-6 pb-24 pt-16 lg:grid-cols-[1.1fr_0.9fr] lg:px-10 lg:pb-30 lg:pt-26">
+        <div className="mx-auto grid w-full max-w-6xl gap-10 px-5 pb-20 pt-12 sm:px-6 md:gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:items-end lg:gap-14 lg:px-10 lg:pb-28 lg:pt-24">
           <HeroOverlay
             phase={phase}
             brandLine={brandLine}
