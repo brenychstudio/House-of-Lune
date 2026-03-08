@@ -12,9 +12,9 @@ type SignatureStoryProps = {
 
 export function SignatureStory({ homeContent, lang }: SignatureStoryProps) {
   return (
-    <section className="mx-auto w-full max-w-6xl px-6 py-30 lg:px-10">
+    <section className="mx-auto w-full max-w-6xl px-5 py-20 sm:px-6 sm:py-24 lg:px-10 lg:py-30">
       <SectionHeading eyebrow={homeContent.signature.eyebrow} title={homeContent.signature.title} description={homeContent.signature.description} />
-      <div className="mt-10 grid items-end gap-8 lg:grid-cols-[1fr_1.1fr]">
+      <div className="mt-8 grid items-end gap-6 sm:mt-10 sm:gap-8 lg:grid-cols-[1fr_1.1fr]">
         <div className="max-w-3xl text-[var(--color-text-muted)]">
           <p>{homeContent.signature.body}</p>
         </div>

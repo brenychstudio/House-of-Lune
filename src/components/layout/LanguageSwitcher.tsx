@@ -17,7 +17,7 @@ export function LanguageSwitcher({ currentLang, labels }: LanguageSwitcherProps)
   const rest = segments.slice(1);
 
   return (
-    <div className="hidden items-center gap-1 rounded-full border border-[var(--color-line-soft)]/90 bg-[rgba(255,255,255,0.015)] p-1 md:flex">
+    <div className="flex items-center gap-1 rounded-full border border-[var(--color-line-soft)]/90 bg-[rgba(255,255,255,0.015)] p-1">
       {locales.map((locale) => {
         const href = `/${locale}${rest.length ? `/${rest.join("/")}` : ""}`;
         const isActive = currentLang === locale;
@@ -26,7 +26,7 @@ export function LanguageSwitcher({ currentLang, labels }: LanguageSwitcherProps)
           <Link
             key={locale}
             href={href}
-            className={`rounded-full px-2.5 py-1 text-[0.62rem] tracking-[0.14em] transition-colors ${
+            className={`rounded-full px-2 py-1 text-[0.58rem] tracking-[0.13em] transition-colors sm:px-2.5 sm:text-[0.62rem] sm:tracking-[0.14em] ${
               isActive
                 ? "bg-[var(--color-accent)] text-black"
                 : "text-[var(--color-text-muted)] hover:text-[var(--color-text)]"

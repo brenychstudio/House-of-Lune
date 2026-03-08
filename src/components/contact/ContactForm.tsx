@@ -18,11 +18,11 @@ export function ContactForm({
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
   return (
-    <section className="rounded-3xl border border-[var(--color-line)] bg-[rgba(255,255,255,0.015)] p-7 lg:p-8">
+    <section className="rounded-3xl border border-[var(--color-line)] bg-[rgba(255,255,255,0.015)] p-5 sm:p-7 lg:p-8">
       <h2 className="font-serif text-2xl">{form.title}</h2>
       <p className="mt-3 text-sm text-[var(--color-text-muted)]">{form.description}</p>
       <form
-        className="mt-6 space-y-4"
+        className="mt-6 space-y-4 sm:space-y-5"
         onSubmit={async (event) => {
           event.preventDefault();
           setStatus("idle");
@@ -37,7 +37,7 @@ export function ContactForm({
           }
         }}
       >
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid gap-3 sm:gap-4 md:grid-cols-2">
           <label className="space-y-2 text-xs uppercase tracking-[0.12em] text-[var(--color-text-muted)]">
             <span>{form.fields.name}</span>
             <input required name="name" className="h-11 w-full rounded-xl border border-[var(--color-line)] bg-transparent px-4 text-sm outline-none transition focus:border-[var(--color-accent-cool)]" />

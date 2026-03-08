@@ -7,10 +7,10 @@ export function PieceInquiry({ dictionary, lang, piece }: { dictionary: Dictiona
   const encodedPiece = encodeURIComponent(piece.name);
 
   return (
-    <section className="mx-auto max-w-6xl px-6 pb-24 pt-10 lg:px-10">
-      <div className="rounded-[1.3rem] border border-[var(--color-line)] bg-[rgba(255,255,255,0.015)] p-8 lg:p-10">
+    <section className="mx-auto max-w-6xl px-5 pb-18 pt-8 sm:px-6 sm:pb-24 sm:pt-10 lg:px-10">
+      <div className="rounded-[1.3rem] border border-[var(--color-line)] bg-[rgba(255,255,255,0.015)] p-6 sm:p-8 lg:p-10">
         <p className="text-xs uppercase tracking-[0.14em] text-[var(--color-text-muted)]">{dictionary.pages.piece.inquiry.eyebrow}</p>
-        <h2 className="mt-4 max-w-3xl font-serif text-3xl leading-tight">{dictionary.pages.piece.inquiry.title.replace("{piece}", piece.name)}</h2>
+        <h2 className="mt-4 max-w-3xl font-serif text-[2rem] leading-tight sm:text-3xl">{dictionary.pages.piece.inquiry.title.replace("{piece}", piece.name)}</h2>
         <p className="mt-4 max-w-2xl text-[var(--color-text-muted)]">{dictionary.pages.piece.inquiry.description.replace("{piece}", piece.name)}</p>
         <div className="mt-6 flex flex-wrap gap-2 text-[0.68rem] uppercase tracking-[0.12em] text-[var(--color-text-muted)]">
           <span className="rounded-full border border-[var(--color-line)] px-3 py-1">{dictionary.pages.contact.modes.availability}</span>

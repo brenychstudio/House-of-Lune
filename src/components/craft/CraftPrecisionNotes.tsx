@@ -11,9 +11,9 @@ type CraftPrecisionNotesProps = {
 
 export function CraftPrecisionNotes({ title, items, collectionLabel, collectionHref, inquiryLabel, inquiryHref }: CraftPrecisionNotesProps) {
   return (
-    <section className="section-divider py-20">
-      <div className="mx-auto max-w-6xl px-6 lg:px-10">
-        <h2 className="font-serif text-3xl">{title}</h2>
+    <section className="section-divider py-16 sm:py-18 lg:py-20">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-10">
+        <h2 className="font-serif text-[2rem] sm:text-3xl">{title}</h2>
         <ul className="mt-8 space-y-4">
           {items.map((item) => (
             <li key={item} className="rounded-xl border border-[var(--color-line-soft)] bg-[var(--color-surface)] px-5 py-4 text-[var(--color-text-muted)]">
