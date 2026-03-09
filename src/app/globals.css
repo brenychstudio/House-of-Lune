@@ -60,6 +60,12 @@ a {
   text-decoration: none;
 }
 
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 2px solid var(--color-accent-cool);
+  outline-offset: 2px;
+}
+
+
 section {
   position: relative;
 }

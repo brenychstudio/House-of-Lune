@@ -19,7 +19,7 @@ export function MaisonMaterialLanguage({ title, notes, image }: { title: string;
         </div>
         <div className="surface-frame relative overflow-hidden rounded-2xl">
           <div className="relative aspect-[4/5]">
-            <Image src={image} alt="Maison material portrait" fill sizes="(min-width: 1024px) 34vw, 100vw" className="object-cover" />
+            <Image src={image} alt={`${title} material portrait`} fill sizes="(min-width: 1024px) 34vw, 100vw" className="object-cover" />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,3,8,0.04),rgba(2,3,8,0.54))]" />
           </div>
         </div>
