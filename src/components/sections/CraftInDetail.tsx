@@ -14,12 +14,12 @@ export function CraftInDetail({ homeContent }: CraftInDetailProps) {
         <SectionHeading eyebrow={homeContent.craft.eyebrow} title={homeContent.craft.title} description={homeContent.craft.description} />
         <div className="grid gap-4 sm:gap-5 md:grid-cols-[1fr_0.8fr]">
           <div className="surface-frame relative aspect-[3/2] overflow-hidden rounded-2xl">
-            <Image src={homeContent.visuals.craft.bandMacro} alt="Macro study of hero ring band" fill sizes="(min-width: 1024px) 36vw, 100vw" className="object-cover opacity-78" />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,3,8,0.1),rgba(2,3,8,0.58))]" />
+            <Image src={homeContent.visuals.craft.bandMacro} alt="Macro study of hero ring band" fill sizes="(min-width: 1024px) 36vw, 100vw" className="object-cover" />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,3,8,0.04),rgba(2,3,8,0.5))]" />
           </div>
           <div className="surface-frame relative aspect-[4/5] overflow-hidden rounded-2xl">
-            <Image src={homeContent.visuals.craft.gemstoneMacro} alt="Macro study of hero ring gemstone" fill sizes="(min-width: 1024px) 24vw, 60vw" className="object-cover opacity-78" />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,3,8,0.16),rgba(2,3,8,0.66))]" />
+            <Image src={homeContent.visuals.craft.gemstoneMacro} alt="Macro study of hero ring gemstone" fill sizes="(min-width: 1024px) 24vw, 60vw" className="object-cover" />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,3,8,0.06),rgba(2,3,8,0.54))]" />
           </div>
           <div className="surface-frame rounded-2xl p-6 sm:p-8 text-[var(--color-text-muted)] md:col-span-2">
             <p>{homeContent.craft.bodyOne}</p>

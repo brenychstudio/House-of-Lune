@@ -17,8 +17,8 @@ export function FeaturedCollection({ homeContent, lang }: FeaturedCollectionProp
       <SectionHeading eyebrow={homeContent.featured.eyebrow} title={homeContent.featured.title} description={homeContent.featured.description} />
 
       <div className="surface-frame relative mt-9 aspect-[16/10] sm:mt-12 sm:aspect-[16/8] lg:aspect-[16/7] overflow-hidden rounded-[1.65rem] border border-[var(--color-line)]">
-        <Image src={homeContent.visuals.featuredCard} alt="Hero ring featured collection card" fill sizes="(min-width: 1024px) 72rem, 100vw" className="object-cover object-center opacity-72" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,3,8,0.12),rgba(2,3,8,0.68))]" />
+        <Image src={homeContent.visuals.featuredCard} alt="Hero ring featured collection card" fill sizes="(min-width: 1024px) 72rem, 100vw" className="object-cover object-center" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,3,8,0.04),rgba(2,3,8,0.58))]" />
       </div>
 
       <div className="mt-8 grid gap-4 sm:mt-10 sm:gap-5 md:grid-cols-2">

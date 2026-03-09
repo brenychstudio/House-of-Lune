@@ -12,8 +12,8 @@ export function JournalPreview({ homeContent }: JournalPreviewProps) {
     <section id="journal" className="mx-auto w-full max-w-6xl px-5 pb-16 pt-18 sm:px-6 sm:pb-18 sm:pt-22 lg:px-10 lg:pt-24">
       <SectionHeading eyebrow={homeContent.journal.eyebrow} title={homeContent.journal.title} description={homeContent.journal.description} />
       <div className="surface-frame relative mt-10 aspect-[21/9] overflow-hidden rounded-2xl">
-        <Image src={homeContent.visuals.journalCampaign} alt="Wide campaign frame previewing the journal" fill sizes="(min-width: 1024px) 72rem, 100vw" className="object-cover opacity-72" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,3,8,0.12),rgba(2,3,8,0.66))]" />
+        <Image src={homeContent.visuals.journalCampaign} alt="Wide campaign frame previewing the journal" fill sizes="(min-width: 1024px) 72rem, 100vw" className="object-cover" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,3,8,0.05),rgba(2,3,8,0.58))]" />
       </div>
       <ul className="mt-8 space-y-4 sm:mt-10 sm:space-y-5 border-t border-[var(--color-line-soft)] pt-6">
         {homeContent.journal.entries.map((entry) => (

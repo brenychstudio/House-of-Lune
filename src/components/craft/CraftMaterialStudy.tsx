@@ -8,8 +8,8 @@ export function CraftMaterialStudy({ title, line, image }: { title: string; line
         <p className="mt-4 max-w-3xl text-[var(--color-text-muted)]">{line}</p>
         <div className="surface-frame relative mt-8 overflow-hidden rounded-2xl">
           <div className="relative aspect-[16/9]">
-            <Image src={image} alt="Material study frame" fill sizes="(min-width: 1024px) 72rem, 100vw" className="object-cover opacity-78" />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,3,8,0.06),rgba(2,3,8,0.62))]" />
+            <Image src={image} alt="Material study frame" fill sizes="(min-width: 1024px) 72rem, 100vw" className="object-cover" />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,3,8,0.03),rgba(2,3,8,0.54))]" />
           </div>
         </div>
       </div>

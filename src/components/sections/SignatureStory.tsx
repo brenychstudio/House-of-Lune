@@ -19,8 +19,8 @@ export function SignatureStory({ homeContent, lang }: SignatureStoryProps) {
           <p>{homeContent.signature.body}</p>
         </div>
         <div className="surface-frame relative aspect-[16/9] overflow-hidden rounded-2xl">
-          <Image src={homeContent.visuals.signatureCampaign} alt="Hero ring still-life campaign frame" fill sizes="(min-width: 1024px) 44vw, 100vw" className="object-cover opacity-74" />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,3,8,0.08),rgba(2,3,8,0.56))]" />
+          <Image src={homeContent.visuals.signatureCampaign} alt="Hero ring still-life campaign frame" fill sizes="(min-width: 1024px) 44vw, 100vw" className="object-cover" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,3,8,0.03),rgba(2,3,8,0.5))]" />
         </div>
       </div>
       <div className="mt-10">

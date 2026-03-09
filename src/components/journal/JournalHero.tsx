@@ -8,8 +8,8 @@ export function JournalHero({ eyebrow, title, description, image }: { eyebrow: s
       <p className="mt-5 max-w-3xl text-[var(--color-text-muted)]">{description}</p>
       <div className="surface-frame relative mt-10 overflow-hidden rounded-2xl">
         <div className="relative aspect-[21/9]">
-          <Image src={image} alt="Journal campaign hero" fill sizes="(min-width: 1024px) 72rem, 100vw" className="object-cover opacity-74" />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,3,8,0.1),rgba(2,3,8,0.66))]" />
+          <Image src={image} alt="Journal campaign hero" fill sizes="(min-width: 1024px) 72rem, 100vw" className="object-cover" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,3,8,0.04),rgba(2,3,8,0.58))]" />
         </div>
       </div>
     </section>
