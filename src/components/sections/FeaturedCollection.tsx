@@ -12,13 +12,25 @@ type FeaturedCollectionProps = {
 };
 
 export function FeaturedCollection({ homeContent, lang }: FeaturedCollectionProps) {
+  const featuredPreview = featuredPieces.slice(0, 3);
+
   return (
     <section id="collection" className="mx-auto w-full max-w-6xl px-5 pb-20 pt-14 sm:px-6 sm:pb-24 sm:pt-16 lg:px-10 lg:pb-26">
       <SectionHeading eyebrow={homeContent.featured.eyebrow} title={homeContent.featured.title} description={homeContent.featured.description} />
 
-      <div className="surface-frame relative mt-9 aspect-[16/10] sm:mt-12 sm:aspect-[16/8] lg:aspect-[16/7] overflow-hidden rounded-[1.65rem] border border-[var(--color-line)]">
-        <Image src={homeContent.visuals.featuredCard} alt="Hero ring featured collection card" fill sizes="(min-width: 1024px) 72rem, 100vw" className="object-cover object-center" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,3,8,0.04),rgba(2,3,8,0.58))]" />
+      <div className="mt-9 grid gap-4 sm:mt-12 sm:gap-5 md:grid-cols-3">
+        {featuredPreview.map((piece) => (
+          <a key={piece.slug} href={`/${lang}/piece/${piece.slug}`} className="group relative block overflow-hidden rounded-[1.35rem] border border-[var(--color-line)]">
+            <div className="relative aspect-[4/5]">
+              <Image src={piece.featuredCardImage ?? piece.heroImage} alt={piece.name} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover transition duration-500 group-hover:scale-[1.02]" />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,3,8,0.04),rgba(2,3,8,0.62))]" />
+            </div>
+            <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
+              <p className="text-[0.66rem] uppercase tracking-[0.17em] text-[var(--color-text-muted)]">{piece.category}</p>
+              <h3 className="mt-2 font-serif text-xl leading-tight">{piece.name}</h3>
+            </div>
+          </a>
+        ))}
       </div>
 
       <div className="mt-8 grid gap-4 sm:mt-10 sm:gap-5 md:grid-cols-2">

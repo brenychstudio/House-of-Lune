@@ -8,14 +8,15 @@ type PieceCardProps = {
   piece: Piece;
   lang: Locale;
   dictionary: Dictionary;
+  emphasized?: boolean;
 };
 
-export function PieceCard({ piece, lang, dictionary }: PieceCardProps) {
+export function PieceCard({ piece, lang, dictionary, emphasized = false }: PieceCardProps) {
   return (
-    <article className="group overflow-hidden rounded-[1.35rem] border border-[var(--color-line)] bg-[rgba(255,255,255,0.02)]">
+    <article className={`group overflow-hidden rounded-[1.35rem] border border-[var(--color-line)] bg-[rgba(255,255,255,0.02)] ${emphasized ? "md:col-span-2 xl:col-span-1" : ""}`}>
       <a href={`/${lang}/piece/${piece.slug}`} className="block">
-        <div className="relative aspect-[4/5] overflow-hidden">
-          <Image src={piece.featuredCardImage ?? piece.heroImage} alt={piece.name} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover transition duration-500 group-hover:scale-[1.02]" />
+        <div className={`relative overflow-hidden ${emphasized ? "aspect-[16/10] md:aspect-[16/9] xl:aspect-[4/5]" : "aspect-[4/5]"}`}>
+          <Image src={piece.featuredCardImage ?? piece.heroImage} alt={piece.name} fill sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw" className="object-cover transition duration-500 group-hover:scale-[1.02]" />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,7,10,0.02),rgba(5,7,10,0.6))]" />
         </div>
         <div className="space-y-3 p-5 sm:p-6">

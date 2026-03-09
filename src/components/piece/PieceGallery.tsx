@@ -9,8 +9,11 @@ export function PieceGallery({ piece, dictionary }: { piece: Piece; dictionary: 
       <h2 className="mb-5 font-serif text-2xl">{dictionary.pages.piece.galleryTitle}</h2>
       <div className="grid gap-4 sm:gap-5 md:grid-cols-2">
         {piece.gallery.map((image, index) => (
-          <div key={`${piece.slug}-${index}`} className="relative min-h-[16rem] sm:min-h-[20rem] overflow-hidden rounded-[1.2rem] border border-[var(--color-line)]">
-            <Image src={image} alt={`${piece.name} view ${index + 1}`} fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
+          <div
+            key={`${piece.slug}-${index}`}
+            className={`relative overflow-hidden rounded-[1.2rem] border border-[var(--color-line)] ${index === 0 ? "min-h-[18rem] sm:min-h-[24rem] md:col-span-2" : "min-h-[16rem] sm:min-h-[20rem]"}`}
+          >
+            <Image src={image} alt={`${piece.name} view ${index + 1}`} fill sizes="(min-width: 1024px) 66vw, (min-width: 768px) 50vw, 100vw" className="object-cover" />
           </div>
         ))}
       </div>
