@@ -14,8 +14,8 @@ export function MaisonPreview({ homeContent }: MaisonPreviewProps) {
         <SectionHeading eyebrow={homeContent.maison.eyebrow} title={homeContent.maison.title} description={homeContent.maison.description} />
         <div className="rounded-2xl border border-[var(--color-line)] bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.014))] p-6 sm:p-8 text-[var(--color-text-muted)]">
           <div className="surface-frame relative mb-7 aspect-[3/2] overflow-hidden rounded-xl">
-            <Image src={homeContent.visuals.maisonAtelier} alt="Nocturne atelier interior at the maison" fill sizes="(min-width: 1024px) 36vw, 100vw" className="object-cover opacity-74" />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,3,8,0.08),rgba(2,3,8,0.62))]" />
+            <Image src={homeContent.visuals.maisonAtelier} alt="Nocturne atelier interior at the maison" fill sizes="(min-width: 1024px) 36vw, 100vw" className="object-cover" />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,3,8,0.03),rgba(2,3,8,0.52))]" />
           </div>
           <p>{homeContent.maison.body}</p>
           <div className="mt-6">

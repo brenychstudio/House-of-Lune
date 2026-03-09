@@ -17,8 +17,8 @@ export function MaisonHero({ eyebrow, title, description, line, image }: MaisonH
       <p className="mt-5 max-w-3xl text-sm uppercase tracking-[0.14em] text-[var(--color-accent)]">{line}</p>
       <div className="surface-frame relative mt-8 sm:mt-10 overflow-hidden rounded-2xl">
         <div className="relative aspect-[16/9]">
-          <Image src={image} alt="Maison campaign frame" fill sizes="(min-width: 1024px) 72rem, 100vw" className="object-cover opacity-76" />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,3,8,0.1),rgba(2,3,8,0.7))]" />
+          <Image src={image} alt="Maison campaign frame" fill sizes="(min-width: 1024px) 72rem, 100vw" className="object-cover" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,3,8,0.04),rgba(2,3,8,0.6))]" />
         </div>
       </div>
     </section>

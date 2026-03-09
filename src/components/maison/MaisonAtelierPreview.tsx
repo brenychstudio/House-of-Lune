@@ -20,8 +20,8 @@ export function MaisonAtelierPreview({ title, lead, note, image, collectionLabel
         <div className="surface-frame overflow-hidden rounded-2xl">
           <div className="grid gap-0 lg:grid-cols-[1.1fr_1fr]">
             <div className="relative aspect-[4/3] lg:aspect-auto">
-              <Image src={image} alt="Atelier interior" fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover opacity-76" />
-              <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,3,8,0.2),rgba(2,3,8,0.5))]" />
+              <Image src={image} alt="Atelier interior" fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" />
+              <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,3,8,0.08),rgba(2,3,8,0.38))]" />
             </div>
             <div className="p-6 sm:p-8 lg:p-10">
               <h2 className="font-serif text-[2rem] sm:text-3xl">{title}</h2>
