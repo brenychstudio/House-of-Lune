@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Link from "next/link";
 
 type ButtonProps = {
   children: ReactNode;
@@ -16,8 +17,8 @@ export function Button({ children, href = "#", variant = "solid", size = "md" }:
       : "border-[var(--color-accent)] bg-[var(--color-accent)] text-black hover:border-[#d8ccae] hover:bg-[#d8ccae]";
 
   return (
-    <a href={href} className={`${base} ${sizeClass} ${variantClass} uppercase`}>
+    <Link href={href} className={`${base} ${sizeClass} ${variantClass} uppercase`}>
       {children}
-    </a>
+    </Link>
   );
 }
