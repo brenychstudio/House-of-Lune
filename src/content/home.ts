@@ -33,6 +33,11 @@ export function getHomeContent(dictionary: Dictionary, lang: Locale) {
     },
     visuals: {
       featuredCard: assets.pieces.heroRing.featuredCard,
+      featuredCards: [
+        assets.pieces.eclipseLine.featuredCard,
+        assets.pieces.velourCascade.featuredCard,
+        assets.pieces.astralCuff.featuredCard,
+      ],
       craft: {
         bandMacro: assets.pieces.heroRing.macroBand,
         gemstoneMacro: assets.pieces.heroRing.macroGemstone,
