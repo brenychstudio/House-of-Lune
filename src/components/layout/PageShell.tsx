@@ -1,7 +1,5 @@
 import type { ReactNode } from "react";
 
-import { SiteFooter } from "@/components/layout/SiteFooter";
-import { SiteHeader } from "@/components/layout/SiteHeader";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/types/i18n";
 
@@ -11,12 +9,6 @@ type PageShellProps = {
   lang: Locale;
 };
 
-export function PageShell({ children, dictionary, lang }: PageShellProps) {
-  return (
-    <div className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)]">
-      <SiteHeader dictionary={dictionary} lang={lang} />
-      <main id="main-content">{children}</main>
-      <SiteFooter dictionary={dictionary} lang={lang} />
-    </div>
-  );
+export function PageShell({ children }: PageShellProps) {
+  return <>{children}</>;
 }

@@ -10,60 +10,61 @@ type HeroFallbackProps = {
 
 const phaseVisual = {
   prelude: {
-    chamberOpacity: "opacity-32",
-    posterOpacity: "opacity-42",
+    chamberOpacity: "opacity-50",
+    posterOpacity: "opacity-60",
     traceOpacity: "opacity-0",
     glintOpacity: "opacity-0",
   },
   trace: {
-    chamberOpacity: "opacity-44",
-    posterOpacity: "opacity-50",
-    traceOpacity: "opacity-24",
+    chamberOpacity: "opacity-60",
+    posterOpacity: "opacity-70",
+    traceOpacity: "opacity-20",
     glintOpacity: "opacity-0",
   },
   contour: {
-    chamberOpacity: "opacity-56",
-    posterOpacity: "opacity-62",
-    traceOpacity: "opacity-44",
+    chamberOpacity: "opacity-70",
+    posterOpacity: "opacity-80",
+    traceOpacity: "opacity-40",
     glintOpacity: "opacity-0",
   },
   emergence: {
-    chamberOpacity: "opacity-68",
-    posterOpacity: "opacity-74",
-    traceOpacity: "opacity-58",
-    glintOpacity: "opacity-10",
+    chamberOpacity: "opacity-80",
+    posterOpacity: "opacity-90",
+    traceOpacity: "opacity-50",
+    glintOpacity: "opacity-20",
   },
   glint: {
-    chamberOpacity: "opacity-76",
-    posterOpacity: "opacity-82",
-    traceOpacity: "opacity-64",
-    glintOpacity: "opacity-58",
+    chamberOpacity: "opacity-80",
+    posterOpacity: "opacity-95",
+    traceOpacity: "opacity-60",
+    glintOpacity: "opacity-60",
   },
   settle: {
-    chamberOpacity: "opacity-82",
-    posterOpacity: "opacity-84",
-    traceOpacity: "opacity-58",
-    glintOpacity: "opacity-14",
+    chamberOpacity: "opacity-80",
+    posterOpacity: "opacity-100",
+    traceOpacity: "opacity-50",
+    glintOpacity: "opacity-20",
   },
   copy: {
-    chamberOpacity: "opacity-84",
-    posterOpacity: "opacity-84",
-    traceOpacity: "opacity-52",
-    glintOpacity: "opacity-6",
+    chamberOpacity: "opacity-80",
+    posterOpacity: "opacity-100",
+    traceOpacity: "opacity-40",
+    glintOpacity: "opacity-10",
   },
   idle: {
-    chamberOpacity: "opacity-84",
-    posterOpacity: "opacity-84",
-    traceOpacity: "opacity-52",
-    glintOpacity: "opacity-6",
+    chamberOpacity: "opacity-80",
+    posterOpacity: "opacity-100",
+    traceOpacity: "opacity-40",
+    glintOpacity: "opacity-10",
   },
 } as const;
 
 export function HeroFallback({ phase, liveActive = false }: HeroFallbackProps) {
   const visual = phaseVisual[phase];
-  const chamberOpacity = liveActive ? "opacity-26" : visual.chamberOpacity;
-  const posterOpacity = liveActive ? "opacity-28" : visual.posterOpacity;
-  const traceOpacity = liveActive ? "opacity-12" : visual.traceOpacity;
+
+  const chamberOpacity = liveActive ? "opacity-50" : visual.chamberOpacity;
+  const posterOpacity = liveActive ? "opacity-80" : visual.posterOpacity;
+  const traceOpacity = liveActive ? "opacity-20" : visual.traceOpacity;
 
   return (
     <div className="absolute inset-0 overflow-hidden rounded-[1.8rem]">
@@ -73,26 +74,28 @@ export function HeroFallback({ phase, liveActive = false }: HeroFallbackProps) {
         fill
         priority
         sizes="(min-width: 1024px) 42vw, 100vw"
-        className={`object-cover object-center transition-opacity duration-[1700ms] ease-[cubic-bezier(0.3,1,0.35,1)] ${chamberOpacity}`}
+        className={`object-cover object-center transition-opacity duration-[1500ms] ease-[cubic-bezier(0.3,1,0.35,1)] ${chamberOpacity}`}
       />
 
-      <div className="absolute inset-[10%_11%_14%] overflow-hidden rounded-[2rem] border border-[rgba(190,198,212,0.16)]/80 bg-[rgba(2,4,10,0.45)]">
+      <div className="absolute inset-[10%_11%_14%] overflow-hidden rounded-[2rem] border border-[rgba(190,198,212,0.16)] bg-[rgba(2,4,10,0.18)]">
         <Image
           src={assets.home.hero.poster}
           alt="Hero ring signature composition"
           fill
           priority
           sizes="(min-width: 1024px) 32vw, 72vw"
-          className={`object-cover object-center transition-opacity duration-[1600ms] ease-[cubic-bezier(0.3,1,0.35,1)] ${posterOpacity}`}
+          className={`object-cover object-center transition-opacity duration-[1500ms] ease-[cubic-bezier(0.3,1,0.35,1)] ${posterOpacity}`}
         />
+
         <Image
           src={assets.home.hero.teaserStill}
           alt=""
           fill
           sizes="(min-width: 1024px) 32vw, 72vw"
-          className="object-cover object-center opacity-14 mix-blend-screen"
+          className="object-cover object-center opacity-10 mix-blend-screen"
         />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_48%_35%,rgba(230,236,248,0.12),transparent_40%),linear-gradient(180deg,rgba(2,3,8,0.2),rgba(2,3,8,0.7))]" />
+
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_52%_40%,rgba(230,236,248,0.12),transparent_38%)]" />
       </div>
 
       <div

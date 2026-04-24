@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { PageShell } from "@/components/layout/PageShell";
+import { EditorialReveal } from "@/components/motion/EditorialReveal";
+import { ImageDrift } from "@/components/motion/ImageDrift";
 import { PieceGallery } from "@/components/piece/PieceGallery";
 import { PieceHero } from "@/components/piece/PieceHero";
 import { PieceInquiry } from "@/components/piece/PieceInquiry";
@@ -44,11 +46,23 @@ export default async function PiecePage({ params }: { params: Promise<{ lang: st
 
   return (
     <PageShell dictionary={dictionary} lang={lang}>
-      <PieceHero piece={piece} />
-      <PieceSpecs piece={piece} dictionary={dictionary} />
-      <PieceGallery piece={piece} dictionary={dictionary} />
-      <PieceStory piece={piece} dictionary={dictionary} />
-      <PieceInquiry dictionary={dictionary} lang={lang} piece={piece} />
+      <EditorialReveal variant="image">
+        <ImageDrift>
+          <PieceHero piece={piece} />
+        </ImageDrift>
+      </EditorialReveal>
+      <EditorialReveal variant="section" delay={0.04}>
+        <PieceSpecs piece={piece} dictionary={dictionary} />
+      </EditorialReveal>
+      <EditorialReveal variant="section" delay={0.08}>
+        <PieceGallery piece={piece} dictionary={dictionary} />
+      </EditorialReveal>
+      <EditorialReveal variant="section" delay={0.1}>
+        <PieceStory piece={piece} dictionary={dictionary} />
+      </EditorialReveal>
+      <EditorialReveal variant="section" delay={0.12}>
+        <PieceInquiry dictionary={dictionary} lang={lang} piece={piece} />
+      </EditorialReveal>
     </PageShell>
   );
 }

@@ -13,21 +13,47 @@ type MaisonAtelierPreviewProps = {
   inquiryHref: string;
 };
 
-export function MaisonAtelierPreview({ title, lead, note, image, collectionLabel, collectionHref, inquiryLabel, inquiryHref }: MaisonAtelierPreviewProps) {
+export function MaisonAtelierPreview({
+  title,
+  lead,
+  note,
+  image,
+  collectionLabel,
+  collectionHref,
+  inquiryLabel,
+  inquiryHref,
+}: MaisonAtelierPreviewProps) {
   return (
-    <section className="section-divider py-16 sm:py-18 lg:py-20">
+    <section className="section-divider py-18 sm:py-20 lg:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-10">
-        <div className="surface-frame overflow-hidden rounded-2xl">
-          <div className="grid gap-0 lg:grid-cols-[1.1fr_1fr]">
-            <div className="relative aspect-[4/3] lg:aspect-auto">
-              <Image src={image} alt={`${title} atelier interior`} fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" />
-              <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,3,8,0.08),rgba(2,3,8,0.38))]" />
+        <div className="surface-frame luxury-card overflow-hidden rounded-[1.8rem]">
+          <div className="grid lg:grid-cols-[0.58fr_0.42fr]">
+            <div className="luxury-frame relative aspect-[16/10] lg:aspect-auto lg:min-h-[25rem]">
+              <Image
+                src={image}
+                alt={`${title} atelier interior`}
+                fill
+                sizes="(min-width: 1024px) 42rem, 100vw"
+                className="object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,3,8,0),rgba(2,3,8,0.16))]" />
             </div>
-            <div className="p-6 sm:p-8 lg:p-10">
-              <h2 className="font-serif text-[2rem] sm:text-3xl">{title}</h2>
-              <p className="mt-4 text-[var(--color-text-muted)]">{lead}</p>
-              <p className="mt-4 text-[var(--color-text-muted)]">{note}</p>
-              <div className="mt-7 flex flex-wrap gap-3">
+
+            <div className="flex flex-col justify-center border-t border-white/8 bg-white/[0.018] p-7 sm:p-9 lg:border-l lg:border-t-0 lg:p-12">
+              <p className="text-[0.64rem] uppercase tracking-[0.2em] text-white/38">
+                Atelier note
+              </p>
+
+              <h2 className="mt-4 max-w-[12ch] font-serif text-[2rem] leading-[1.02] tracking-[-0.03em] text-[var(--color-text)] sm:text-[2.35rem]">
+                {title}
+              </h2>
+
+              <div className="mt-6 space-y-5 text-[0.98rem] leading-7 text-white/64">
+                <p>{lead}</p>
+                <p>{note}</p>
+              </div>
+
+              <div className="mt-8 flex flex-wrap gap-3">
                 <Button href={collectionHref}>{collectionLabel}</Button>
                 <Button href={inquiryHref} variant="outline">
                   {inquiryLabel}

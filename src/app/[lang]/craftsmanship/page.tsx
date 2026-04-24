@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import { CraftEditorialJourney } from "@/components/craft/CraftEditorialJourney";
 import { CraftHero } from "@/components/craft/CraftHero";
-import { CraftMaterialStudy } from "@/components/craft/CraftMaterialStudy";
-import { CraftPrecisionNotes } from "@/components/craft/CraftPrecisionNotes";
-import { CraftProcessChapters } from "@/components/craft/CraftProcessChapters";
 import { PageShell } from "@/components/layout/PageShell";
 import { getCraftContent } from "@/content/craft";
 import { isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
-export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
   const { lang } = await params;
   if (!isValidLocale(lang)) notFound();
 
@@ -25,7 +27,11 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   });
 }
 
-export default async function CraftsmanshipPage({ params }: { params: Promise<{ lang: string }> }) {
+export default async function CraftsmanshipPage({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
   const { lang } = await params;
   if (!isValidLocale(lang)) notFound();
 
@@ -35,11 +41,15 @@ export default async function CraftsmanshipPage({ params }: { params: Promise<{ 
   return (
     <PageShell dictionary={dictionary} lang={lang}>
       <CraftHero {...content.hero} />
-      <CraftProcessChapters title={content.process.title} chapters={content.process.chapters} />
-      <CraftMaterialStudy title={content.materialStudy.title} line={content.materialStudy.line} image={content.materialStudy.image} />
-      <CraftPrecisionNotes
-        title={content.precisionNotes.title}
-        items={content.precisionNotes.items}
+
+      <CraftEditorialJourney
+        processTitle={content.process.title}
+        chapters={content.process.chapters}
+        materialStudyTitle={content.materialStudy.title}
+        materialStudyLine={content.materialStudy.line}
+        materialStudyImage={content.materialStudy.image}
+        precisionTitle={content.precisionNotes.title}
+        precisionItems={content.precisionNotes.items}
         collectionLabel={content.cta.collectionLabel}
         collectionHref={content.cta.collectionHref}
         inquiryLabel={content.cta.inquiryLabel}

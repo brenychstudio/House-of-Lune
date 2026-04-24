@@ -5,6 +5,8 @@ import { JournalFeature } from "@/components/journal/JournalFeature";
 import { JournalHero } from "@/components/journal/JournalHero";
 import { JournalList } from "@/components/journal/JournalList";
 import { PageShell } from "@/components/layout/PageShell";
+import { EditorialReveal } from "@/components/motion/EditorialReveal";
+import { ImageDrift } from "@/components/motion/ImageDrift";
 import { getJournalContent } from "@/content/journal";
 import { isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
@@ -33,17 +35,25 @@ export default async function JournalPage({ params }: { params: Promise<{ lang: 
 
   return (
     <PageShell dictionary={dictionary} lang={lang}>
-      <JournalHero {...content.hero} />
-      <JournalFeature label={content.featuredLabel} entry={content.featured} readLabel={content.entryReadLabel} />
-      <JournalList
-        title={content.latestLabel}
-        entries={content.list}
-        readLabel={content.entryReadLabel}
-        maisonLabel={content.cta.maisonLabel}
-        maisonHref={content.cta.maisonHref}
-        collectionLabel={content.cta.collectionLabel}
-        collectionHref={content.cta.collectionHref}
-      />
+      <EditorialReveal variant="image">
+        <ImageDrift>
+          <JournalHero {...content.hero} />
+        </ImageDrift>
+      </EditorialReveal>
+      <EditorialReveal variant="section" delay={0.05}>
+        <JournalFeature label={content.featuredLabel} entry={content.featured} readLabel={content.entryReadLabel} />
+      </EditorialReveal>
+      <EditorialReveal variant="section" delay={0.1}>
+        <JournalList
+          title={content.latestLabel}
+          entries={content.list}
+          readLabel={content.entryReadLabel}
+          maisonLabel={content.cta.maisonLabel}
+          maisonHref={content.cta.maisonHref}
+          collectionLabel={content.cta.collectionLabel}
+          collectionHref={content.cta.collectionHref}
+        />
+      </EditorialReveal>
     </PageShell>
   );
 }

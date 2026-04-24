@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { CollectionGrid } from "@/components/collection/CollectionGrid";
 import { CollectionHero } from "@/components/collection/CollectionHero";
 import { PageShell } from "@/components/layout/PageShell";
+import { EditorialReveal } from "@/components/motion/EditorialReveal";
+import { ImageDrift } from "@/components/motion/ImageDrift";
 import { isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
 import { buildPageMetadata } from "@/lib/seo/metadata";
@@ -30,8 +32,14 @@ export default async function CollectionPage({ params }: { params: Promise<{ lan
 
   return (
     <PageShell dictionary={dictionary} lang={lang}>
-      <CollectionHero dictionary={dictionary} />
-      <CollectionGrid lang={lang} dictionary={dictionary} />
+      <EditorialReveal variant="image">
+        <ImageDrift>
+          <CollectionHero dictionary={dictionary} />
+        </ImageDrift>
+      </EditorialReveal>
+      <EditorialReveal variant="section" delay={0.05}>
+        <CollectionGrid lang={lang} dictionary={dictionary} />
+      </EditorialReveal>
     </PageShell>
   );
 }

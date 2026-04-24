@@ -21,6 +21,8 @@ const astralCuffEditorialDetail = "/media/pieces/astral-cuff/editorial/hol-astra
 const astralCuffMacroDetail = "/media/pieces/astral-cuff/macro/hol-astral-cuff-macro-detail-3x2-01.png";
 const astralCuffOnBody = "/media/pieces/astral-cuff/on-body/hol-astral-cuff-on-body-4x5-01.png";
 
+const maisonAtelierNocturne = "/media/maison/atelier/hol-maison-atelier-nocturne-3x2-01.png";
+
 export const assets = {
   home: {
     hero: {
@@ -68,12 +70,12 @@ export const assets = {
     },
   },
   maison: {
-    atelierNocturne: "/media/maison/atelier/hol-maison-atelier-nocturne-3x2-01.png",
+    atelierNocturne: maisonAtelierNocturne,
     salonPortrait: heroRingOnBody,
     salonWide: heroRingCampaignStillLife,
   },
   craft: {
-    processHero: heroRingMacroBand,
+    processHero: maisonAtelierNocturne,
     processChapterOne: heroRingMacroGemstone,
     processChapterTwo: heroRingMacroBand,
     materialStudyWide: heroRingCampaignStillLife,

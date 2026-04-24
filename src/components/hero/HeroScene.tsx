@@ -28,39 +28,43 @@ export function HeroScene({ phase, pointer }: HeroSceneProps) {
     scene.background = background;
 
     const elapsed = clock.getElapsedTime();
+    const isFinalState = phase === "settle" || phase === "copy" || phase === "idle";
 
     if (stageRef.current) {
-      const settleCalm = phase === "settle" || phase === "copy" || phase === "idle";
-      const parallaxFactor = settleCalm ? 0.45 : 1;
-      const targetX = pointer.y * 0.02 * parallaxFactor;
-      const targetY = pointer.x * 0.045 * parallaxFactor;
+      const parallaxFactor = isFinalState ? 0.58 : 0.92;
+      const targetX = pointer.y * 0.018 * parallaxFactor;
+      const targetY = pointer.x * 0.038 * parallaxFactor;
+
       stageRef.current.rotation.x = damp(stageRef.current.rotation.x, targetX, 0.04);
       stageRef.current.rotation.y = damp(stageRef.current.rotation.y, targetY, 0.04);
     }
 
     if (proxyRef.current) {
-      const isFinalState = phase === "settle" || phase === "copy" || phase === "idle";
-      const idleY = Math.sin(elapsed * 0.24) * (isFinalState ? 0.009 : 0.015);
-      const settleRotation = 0.24;
-      const orbitRotation = Math.sin(elapsed * 0.16) * 0.04;
-      const targetYRotation = isFinalState ? settleRotation : settleRotation + orbitRotation;
+      const floatY = Math.sin(elapsed * 0.34) * (isFinalState ? 0.01 : 0.016);
+      const settleBase = 0.22;
+      const spin = elapsed * (isFinalState ? 0.055 : 0.082);
+      const wobble = Math.sin(elapsed * 0.22) * (isFinalState ? 0.03 : 0.05);
 
-      proxyRef.current.position.y = MathUtils.lerp(proxyRef.current.position.y, idleY, isFinalState ? 0.022 : 0.03);
-      proxyRef.current.rotation.y = damp(proxyRef.current.rotation.y, targetYRotation, isFinalState ? 0.04 : 0.025);
+      const targetYRotation = settleBase + spin + wobble;
+      const targetXRotation = 0.01 + Math.sin(elapsed * 0.18) * (isFinalState ? 0.012 : 0.02);
+
+      proxyRef.current.position.y = MathUtils.lerp(proxyRef.current.position.y, floatY, isFinalState ? 0.022 : 0.03);
+      proxyRef.current.rotation.x = damp(proxyRef.current.rotation.x, targetXRotation, 0.035);
+      proxyRef.current.rotation.y = damp(proxyRef.current.rotation.y, targetYRotation, 0.022);
     }
   });
 
   return (
     <group ref={stageRef}>
       <fog attach="fog" args={["#02040a", 5.8, 12.4]} />
-      <HeroLights phase={phase} glintBoost={glintBoost + tone.glint * 0.2} />
+      <HeroLights phase={phase} glintBoost={glintBoost + tone.glint * 0.18} />
 
-      <mesh position={[0, -1.02, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+      <mesh position={[0, -1.02, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
         <circleGeometry args={[3.1, 48]} />
         <meshStandardMaterial color="#05070f" roughness={0.98} metalness={0.02} />
       </mesh>
 
-      <group ref={proxyRef} scale={0.92 + tone.object * 0.1}>
+      <group ref={proxyRef} scale={0.94 + tone.object * 0.1}>
         <HeroProxyObject intensity={tone.object} contourStrength={tone.contour} />
         <GemGlint phase={phase} onStrength={setGlintBoost} />
       </group>

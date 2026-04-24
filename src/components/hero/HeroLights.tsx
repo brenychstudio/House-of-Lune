@@ -30,23 +30,23 @@ export function HeroLights({ phase, glintBoost }: HeroLightsProps) {
     }
 
     if (rimRef.current) {
-      const rimFloor = isFinalState ? 0.19 : 0.16;
-      rimRef.current.intensity = damp(rimRef.current.intensity, rimFloor + tone.rim * 0.55, 0.06);
+      const rimFloor = isFinalState ? 0.34 : 0.2;
+      rimRef.current.intensity = damp(rimRef.current.intensity, rimFloor + tone.rim * 0.62, 0.06);
     }
 
     if (fillRef.current) {
-      const fillFloor = isFinalState ? 0.065 : 0.05;
-      fillRef.current.intensity = damp(fillRef.current.intensity, fillFloor + tone.fill * 0.35 + breath, 0.05);
+      const fillFloor = isFinalState ? 0.17 : 0.08;
+      fillRef.current.intensity = damp(fillRef.current.intensity, fillFloor + tone.fill * 0.46 + breath, 0.05);
     }
 
     if (accentRef.current) {
-      const accentTarget = 0.03 + tone.accent * 0.24 + glintBoost * 0.28;
-      accentRef.current.intensity = damp(accentRef.current.intensity, accentTarget, 0.15);
+      const accentTarget = 0.05 + tone.accent * 0.24 + glintBoost * 0.22;
+      accentRef.current.intensity = damp(accentRef.current.intensity, accentTarget, 0.14);
     }
 
     if (floorRef.current) {
-      const floorFloor = isFinalState ? 0.06 : 0.05;
-      floorRef.current.intensity = damp(floorRef.current.intensity, floorFloor + tone.floor * 0.13, 0.05);
+      const floorFloor = isFinalState ? 0.13 : 0.08;
+      floorRef.current.intensity = damp(floorRef.current.intensity, floorFloor + tone.floor * 0.18, 0.05);
     }
   });
 
@@ -54,35 +54,41 @@ export function HeroLights({ phase, glintBoost }: HeroLightsProps) {
 
   return (
     <group ref={groupRef}>
-      <ambientLight intensity={0.045 + tone.ambient * 0.18} color="#9ea8bb" />
+      <ambientLight intensity={0.09 + tone.ambient * 0.28} color="#b7c0cf" />
 
       <spotLight
         ref={rimRef}
-        position={[2.3, 1.6, 2.6]}
-        angle={0.3}
+        position={[2.2, 1.55, 2.45]}
+        angle={0.34}
         penumbra={0.92}
         distance={9}
-        color="#e9e2d2"
+        color="#efe6d6"
       />
 
       <spotLight
         ref={fillRef}
-        position={[-1.4, 1.1, 2.3]}
-        angle={0.44}
+        position={[-1.45, 1.14, 2.18]}
+        angle={0.48}
         penumbra={1}
         distance={8}
-        color="#a8b6cc"
+        color="#aebbd0"
       />
 
-      <pointLight ref={accentRef} position={[0.24, 0.26, 1.28]} distance={2.6} decay={2} color="#f7edd5" />
+      <pointLight
+        ref={accentRef}
+        position={[0.22, 0.28, 1.26]}
+        distance={2.8}
+        decay={2}
+        color="#f7edd9"
+      />
 
       <spotLight
         ref={floorRef}
-        position={[0, -0.85, 0.5]}
-        angle={0.65}
+        position={[0, -0.76, 0.62]}
+        angle={0.68}
         penumbra={1}
-        distance={5.6}
-        color="#6f7f96"
+        distance={6}
+        color="#7688a2"
       />
     </group>
   );

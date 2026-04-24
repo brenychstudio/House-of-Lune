@@ -80,7 +80,11 @@ export const featuredPieces: Piece[] = [
     campaignImage: assets.pieces.astralCuff.campaignStillLife,
     onBodyImage: assets.pieces.astralCuff.onBody,
     macroImages: [assets.pieces.astralCuff.macroBand],
-    gallery: [assets.pieces.astralCuff.campaignStillLife, assets.pieces.astralCuff.featuredCard, assets.pieces.astralCuff.onBody, assets.pieces.astralCuff.macroBand],
+    gallery: [
+      assets.pieces.astralCuff.campaignStillLife,
+      assets.pieces.astralCuff.featuredCard,
+      assets.pieces.astralCuff.onBody,
+    ],
     story: [
       "Astral Cuff was drafted from a single continuous arc, then opened to create breathing space at the wrist.",
       "The diamond channels are inset below the outer edge so the piece reads as pure volume first, brilliance second.",

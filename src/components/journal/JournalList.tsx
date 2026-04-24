@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/Button";
 import { JournalEntryCard } from "@/components/journal/JournalEntryCard";
+import { Button } from "@/components/ui/Button";
 import type { JournalEntry } from "@/types/journal";
 
 type JournalListProps = {
@@ -12,21 +12,39 @@ type JournalListProps = {
   collectionHref: string;
 };
 
-export function JournalList({ title, entries, readLabel, maisonLabel, maisonHref, collectionLabel, collectionHref }: JournalListProps) {
+export function JournalList({
+  title,
+  entries,
+  readLabel,
+  maisonLabel,
+  maisonHref,
+  collectionLabel,
+  collectionHref,
+}: JournalListProps) {
   return (
     <section className="section-divider py-16 sm:py-18 lg:py-20">
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-10">
-        <h2 className="font-serif text-[2rem] sm:text-3xl">{title}</h2>
-        <div className="mt-7 grid gap-5 sm:mt-8 sm:gap-6 md:grid-cols-3">
-          {entries.map((entry) => (
-            <JournalEntryCard key={entry.id} entry={entry} readLabel={readLabel} />
-          ))}
-        </div>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <Button href={maisonHref} variant="outline">
-            {maisonLabel}
-          </Button>
-          <Button href={collectionHref}>{collectionLabel}</Button>
+        <div className="border-t border-white/8 pt-8">
+          <h2 className="font-serif text-[2rem] leading-[1.02] tracking-[-0.03em] text-[var(--color-text)] sm:text-[2.35rem]">
+            {title}
+          </h2>
+
+          <div className="mt-8 grid gap-5 sm:gap-6 md:grid-cols-3">
+            {entries.map((entry) => (
+              <JournalEntryCard
+                key={entry.id}
+                entry={entry}
+                readLabel={readLabel}
+              />
+            ))}
+          </div>
+
+          <div className="mt-9 flex flex-wrap gap-3">
+            <Button href={maisonHref} variant="outline">
+              {maisonLabel}
+            </Button>
+            <Button href={collectionHref}>{collectionLabel}</Button>
+          </div>
         </div>
       </div>
     </section>
