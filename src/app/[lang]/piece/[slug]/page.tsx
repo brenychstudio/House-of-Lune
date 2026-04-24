@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 
 import { PageShell } from "@/components/layout/PageShell";
 import { EditorialReveal } from "@/components/motion/EditorialReveal";
-import { ImageDrift } from "@/components/motion/ImageDrift";
 import { PieceGallery } from "@/components/piece/PieceGallery";
 import { PieceHero } from "@/components/piece/PieceHero";
 import { PieceInquiry } from "@/components/piece/PieceInquiry";
@@ -47,9 +46,7 @@ export default async function PiecePage({ params }: { params: Promise<{ lang: st
   return (
     <PageShell dictionary={dictionary} lang={lang}>
       <EditorialReveal variant="image">
-        <ImageDrift>
-          <PieceHero piece={piece} />
-        </ImageDrift>
+        <PieceHero piece={piece} />
       </EditorialReveal>
       <EditorialReveal variant="section" delay={0.04}>
         <PieceSpecs piece={piece} dictionary={dictionary} />
