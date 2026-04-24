@@ -289,3 +289,193 @@ html.route-entering #main-content {
     filter: none;
   }
 }
+
+@keyframes hero-object-plate-breath {
+  0%,
+  100% {
+    opacity: 0.9;
+    filter: saturate(1.04) contrast(1.04) brightness(0.98);
+  }
+
+  50% {
+    opacity: 1;
+    filter: saturate(1.08) contrast(1.1) brightness(1.05);
+  }
+}
+
+@keyframes hero-stage-sweep {
+  0% {
+    opacity: 0;
+    transform: translateX(-38%) rotate(-8deg);
+  }
+
+  18% {
+    opacity: 0.18;
+  }
+
+  46% {
+    opacity: 0.1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(42%) rotate(-8deg);
+  }
+}
+
+@keyframes hero-stage-glint {
+  0%,
+  58%,
+  100% {
+    opacity: 0;
+    transform: translate3d(-12%, 10%, 0) scaleX(0.4);
+  }
+
+  64% {
+    opacity: 0.42;
+    transform: translate3d(8%, -2%, 0) scaleX(1);
+  }
+
+  70% {
+    opacity: 0;
+    transform: translate3d(22%, -8%, 0) scaleX(0.5);
+  }
+}
+
+@keyframes hero-stage-depth-breathe {
+  0%,
+  100% {
+    opacity: 0.34;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.52;
+    transform: scale(1.035);
+  }
+}
+
+.hero-object-plate {
+  animation: hero-object-plate-breath 10.5s cubic-bezier(0.45, 0, 0.2, 1) infinite;
+  transform-origin: center;
+  transition: transform 900ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.hero-stage-depth {
+  background:
+    radial-gradient(circle at 50% 45%, rgba(205, 222, 255, 0.12), transparent 34%),
+    radial-gradient(circle at 50% 74%, rgba(88, 118, 160, 0.14), transparent 38%);
+  animation: hero-stage-depth-breathe 12s cubic-bezier(0.45, 0, 0.2, 1) infinite;
+  mix-blend-mode: screen;
+}
+
+.hero-stage-sweep {
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    transparent 42%,
+    rgba(223, 233, 255, 0.18) 48%,
+    rgba(223, 233, 255, 0.04) 54%,
+    transparent 62%,
+    transparent 100%
+  );
+  animation: hero-stage-sweep 8.5s cubic-bezier(0.45, 0, 0.2, 1) infinite;
+  mix-blend-mode: screen;
+}
+
+.hero-stage-glint {
+  left: 43%;
+  top: 37%;
+  width: 22%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(245, 238, 216, 0.86),
+    transparent
+  );
+  animation: hero-stage-glint 9.5s cubic-bezier(0.45, 0, 0.2, 1) infinite;
+  mix-blend-mode: screen;
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-object-plate,
+  .hero-stage-depth,
+  .hero-stage-sweep,
+  .hero-stage-glint {
+    animation: none;
+    transition: none;
+  }
+}
+
+@keyframes hero-chamber-enter {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0) scale(0.985);
+    filter: blur(8px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes hero-object-window-enter {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0) scale(0.965);
+    filter: blur(10px) brightness(0.72);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0) brightness(1);
+  }
+}
+
+@keyframes hero-object-plate-enter {
+  0% {
+    opacity: 0;
+    filter: saturate(0.92) contrast(0.96) brightness(0.68) blur(4px);
+  }
+
+  100% {
+    opacity: 0.9;
+    filter: saturate(1.04) contrast(1.04) brightness(0.98) blur(0);
+  }
+}
+
+.hero-chamber-enter {
+  animation: hero-chamber-enter 1050ms cubic-bezier(0.19, 1, 0.22, 1) 120ms both;
+  transform-origin: center;
+  will-change: opacity, transform, filter;
+}
+
+.hero-object-window-enter {
+  animation: hero-object-window-enter 1200ms cubic-bezier(0.19, 1, 0.22, 1) 260ms both;
+  transform-origin: center;
+  will-change: opacity, transform, filter;
+}
+
+.hero-object-plate {
+  animation:
+    hero-object-plate-enter 1100ms cubic-bezier(0.19, 1, 0.22, 1) 360ms both,
+    hero-object-plate-breath 10.5s cubic-bezier(0.45, 0, 0.2, 1) 1500ms infinite;
+  transform-origin: center;
+  transition: transform 900ms cubic-bezier(0.19, 1, 0.22, 1);
+  will-change: opacity, filter, transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-chamber-enter,
+  .hero-object-window-enter,
+  .hero-object-plate {
+    animation: none;
+    transition: none;
+    filter: none;
+  }
+}
