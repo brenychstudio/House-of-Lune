@@ -7,7 +7,40 @@ import { SiteHeader } from "@/components/layout/SiteHeader";
 import { RouteTransitionController } from "@/components/motion/RouteTransitionController";
 import { isValidLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
-import { getDefaultDescription } from "@/lib/seo/metadata";
+
+const siteUrl = "https://house-of-lune.pages.dev";
+
+export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "House of Lune — Moonlit Object Theatre",
+    template: "%s — House of Lune",
+  },
+  description:
+    "Contemporary high jewelry shaped by architectural form, lunar restraint, and a measured sense of reveal.",
+  openGraph: {
+    type: "website",
+    siteName: "House of Lune",
+    title: "House of Lune — Moonlit Object Theatre",
+    description:
+      "Contemporary high jewelry shaped by architectural form, lunar restraint, and a measured sense of reveal.",
+    images: [
+      {
+        url: "/og/house-of-lune-og.png",
+        width: 1200,
+        height: 630,
+        alt: "House of Lune — Jewels composed in shadow, light, and deliberate silence.",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "House of Lune — Moonlit Object Theatre",
+    description:
+      "Contemporary high jewelry shaped by architectural form, lunar restraint, and a measured sense of reveal.",
+    images: ["/og/house-of-lune-og.png"],
+  },
+};
 
 type LocaleLayoutProps = {
   children: ReactNode;
@@ -16,31 +49,6 @@ type LocaleLayoutProps = {
 
 export function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
-}
-
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ lang: string }>;
-}): Promise<Metadata> {
-  const { lang } = await params;
-
-  if (!isValidLocale(lang)) {
-    notFound();
-  }
-
-  const dictionary = await getDictionary(lang);
-
-  return {
-    title: {
-      default: dictionary.site.brand,
-      template: `%s · ${dictionary.site.brand}`,
-    },
-    description: getDefaultDescription(lang),
-    openGraph: {
-      locale: lang === "en" ? "en_US" : lang === "fr" ? "fr_FR" : "es_ES",
-    },
-  };
 }
 
 export default async function LocaleLayout({
