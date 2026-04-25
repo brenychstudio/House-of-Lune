@@ -2,7 +2,12 @@ import type { Metadata } from "next";
 
 import type { Locale } from "@/i18n/config";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://house-of-lune.vercel.app";
+export const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  "https://house-of-lune.brenychinfo.workers.dev";
+
+export const ogImagePath = "/og/house-of-lune-og.png";
+export const ogImageUrl = `${siteUrl}${ogImagePath}`;
 
 const localeCodes: Record<Locale, string> = {
   en: "en_US",
@@ -18,11 +23,14 @@ const siteNames: Record<Locale, string> = {
 
 const defaultDescription: Record<Locale, string> = {
   en: "A luxury jewelry maison demo shaped in shadow, precision, and contemporary editorial elegance.",
-  fr: "Une démo de maison joaillière de luxe façonnée par l'ombre, la précision et une élégance éditoriale contemporaine.",
-  es: "Una demo de maison de joyería de lujo definida por sombra, precisión y elegancia editorial contemporánea.",
+  fr: "Une demo de maison joailliere de luxe faconnee par l'ombre, la precision et une elegance editoriale contemporaine.",
+  es: "Una demo de maison de joyeria de lujo definida por sombra, precision y elegancia editorial contemporanea.",
 };
 
 const baseTitle = "House of Lune";
+
+const defaultOgAlt =
+  "House of Lune - Jewels composed in shadow, light, and deliberate silence.";
 
 type PageMetadataInput = {
   lang: Locale;
@@ -32,14 +40,24 @@ type PageMetadataInput = {
   image?: string;
 };
 
-function makeAlternates(path: string) {
+function localizedPath(lang: Locale, path: string) {
+  return `/${lang}${path}`;
+}
+
+function resolveImageUrl(image?: string) {
+  if (!image) return ogImageUrl;
+  if (image.startsWith("http://") || image.startsWith("https://")) return image;
+  return `${siteUrl}${image}`;
+}
+
+function makeAlternates(lang: Locale, path: string) {
   return {
-    canonical: path,
+    canonical: localizedPath(lang, path),
     languages: {
-      en: `/en${path}`,
-      fr: `/fr${path}`,
-      es: `/es${path}`,
-      "x-default": `/en${path}`,
+      en: localizedPath("en", path),
+      fr: localizedPath("fr", path),
+      es: localizedPath("es", path),
+      "x-default": localizedPath("en", path),
     },
   };
 }
@@ -52,7 +70,13 @@ export const globalMetadata: Metadata = {
   },
   description: defaultDescription.en,
   applicationName: baseTitle,
-  keywords: ["House of Lune", "luxury jewelry", "haute joaillerie", "maison", "editorial showcase"],
+  keywords: [
+    "House of Lune",
+    "luxury jewelry",
+    "haute joaillerie",
+    "maison",
+    "editorial showcase",
+  ],
   alternates: {
     canonical: "/en",
     languages: {
@@ -63,18 +87,25 @@ export const globalMetadata: Metadata = {
     },
   },
   openGraph: {
-    title: baseTitle,
+    title: "House of Lune — Moonlit Object Theatre",
     description: defaultDescription.en,
     type: "website",
     siteName: baseTitle,
-    url: "/en",
-    images: [{ url: "/opengraph-image" }],
+    url: `${siteUrl}/en`,
+    images: [
+      {
+        url: ogImageUrl,
+        width: 1200,
+        height: 630,
+        alt: defaultOgAlt,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: baseTitle,
+    title: "House of Lune — Moonlit Object Theatre",
     description: defaultDescription.en,
-    images: ["/twitter-image"],
+    images: [ogImageUrl],
   },
   icons: {
     icon: "/favicon.svg",
@@ -83,27 +114,41 @@ export const globalMetadata: Metadata = {
   },
 };
 
-export function buildPageMetadata({ lang, title, description, path, image = "/opengraph-image" }: PageMetadataInput): Metadata {
-  const localizedPath = `/${lang}${path}`;
+export function buildPageMetadata({
+  lang,
+  title,
+  description,
+  path,
+  image,
+}: PageMetadataInput): Metadata {
+  const pageUrl = `${siteUrl}${localizedPath(lang, path)}`;
+  const resolvedImage = resolveImageUrl(image);
 
   return {
     title,
     description,
-    alternates: makeAlternates(path),
+    alternates: makeAlternates(lang, path),
     openGraph: {
       title: `${title} · ${siteNames[lang]}`,
       description,
       type: "website",
       locale: localeCodes[lang],
       siteName: siteNames[lang],
-      url: localizedPath,
-      images: [{ url: image }],
+      url: pageUrl,
+      images: [
+        {
+          url: resolvedImage,
+          width: 1200,
+          height: 630,
+          alt: defaultOgAlt,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: `${title} · ${siteNames[lang]}`,
       description,
-      images: [image],
+      images: [resolvedImage],
     },
   };
 }

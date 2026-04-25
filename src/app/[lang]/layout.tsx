@@ -7,8 +7,7 @@ import { SiteHeader } from "@/components/layout/SiteHeader";
 import { RouteTransitionController } from "@/components/motion/RouteTransitionController";
 import { isValidLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/getDictionary";
-
-const siteUrl = "https://house-of-lune.pages.dev";
+import { ogImageUrl, siteUrl } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -26,7 +25,7 @@ export const metadata: Metadata = {
       "Contemporary high jewelry shaped by architectural form, lunar restraint, and a measured sense of reveal.",
     images: [
       {
-        url: "/og/house-of-lune-og.png",
+        url: ogImageUrl,
         width: 1200,
         height: 630,
         alt: "House of Lune — Jewels composed in shadow, light, and deliberate silence.",
@@ -38,7 +37,7 @@ export const metadata: Metadata = {
     title: "House of Lune — Moonlit Object Theatre",
     description:
       "Contemporary high jewelry shaped by architectural form, lunar restraint, and a measured sense of reveal.",
-    images: ["/og/house-of-lune-og.png"],
+    images: [ogImageUrl],
   },
 };
 

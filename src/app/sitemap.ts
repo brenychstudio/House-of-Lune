@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next";
 
 import { featuredPieces } from "@/content/pieces";
 import { locales } from "@/i18n/config";
+import { siteUrl as baseUrl } from "@/lib/seo/metadata";
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://house-of-lune.vercel.app";
 const coreRoutes = ["", "/collection", "/maison", "/craftsmanship", "/journal", "/contact"] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
