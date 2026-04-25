@@ -16,7 +16,9 @@ export function HeroStageFrame({
       <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_52%_14%,rgba(255,255,255,0.06),transparent_36%),linear-gradient(180deg,rgba(2,3,8,0.18),rgba(2,3,8,0.42))]" />
 
       {/* Critical: HeroStage must fill the frame directly, not rely on h-full inside a min-height parent. */}
-      <div className="absolute inset-0 z-10">{children}</div>
+      <div className="absolute inset-x-0 top-0 bottom-[5.75rem] z-10 sm:bottom-[5.2rem] lg:inset-0">
+        {children}
+      </div>
 
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-30 border-t border-[rgba(184,194,210,0.1)] bg-[linear-gradient(180deg,rgba(2,4,10,0.18),rgba(2,4,10,0.9)_44%,rgba(2,4,10,0.96))] px-5 py-4 sm:px-6 sm:py-5 lg:px-8">
         <div className="grid gap-3 sm:grid-cols-[12rem_1fr] sm:items-start sm:gap-6">

@@ -81,7 +81,7 @@ export function SiteHeader({ dictionary, lang }: SiteHeaderProps) {
           ))}
         </nav>
 
-        <div className="flex min-w-0 shrink-0 items-center gap-2 sm:gap-3">
+        <div className="ml-auto flex w-full min-w-0 shrink-0 items-center justify-end gap-2 sm:w-auto sm:gap-3">
           <div
             className={`transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
               isScrolled || isMenuOpen ? "opacity-100" : "opacity-88"
@@ -93,7 +93,7 @@ export function SiteHeader({ dictionary, lang }: SiteHeaderProps) {
             />
           </div>
 
-          <div className="hidden sm:block">
+          <div className="hidden xl:block">
             <Button href={`/${lang}/contact`} variant="outline" size="sm">
               {siteContent.cta.inquiry}
             </Button>
@@ -129,7 +129,7 @@ export function SiteHeader({ dictionary, lang }: SiteHeaderProps) {
               <TransitionLink
                 key={item.label}
                 href={item.href}
-                className="rounded-2xl border border-white/8 bg-white/[0.018] px-4 py-4 text-[0.72rem] uppercase tracking-[0.18em] text-white/70 transition-colors duration-300 hover:border-white/14 hover:text-[var(--color-text)]"
+                className="rounded-2xl border border-white/8 bg-white/[0.018] px-4 py-3 text-[0.68rem] uppercase tracking-[0.18em] text-white/70 transition-colors duration-300 hover:border-white/14 hover:text-[var(--color-text)]"
               >
                 {item.label}
               </TransitionLink>
@@ -137,7 +137,7 @@ export function SiteHeader({ dictionary, lang }: SiteHeaderProps) {
 
             <TransitionLink
               href={`/${lang}/contact`}
-              className="rounded-2xl border border-[rgba(228,214,178,0.32)] bg-[rgba(228,214,178,0.08)] px-4 py-4 text-[0.72rem] uppercase tracking-[0.18em] text-[var(--color-text)] transition-colors duration-300 hover:border-[rgba(228,214,178,0.55)] sm:col-span-2"
+              className="rounded-2xl border border-[rgba(228,214,178,0.32)] bg-[rgba(228,214,178,0.08)] px-4 py-3 text-[0.68rem] uppercase tracking-[0.18em] text-[var(--color-text)] transition-colors duration-300 hover:border-[rgba(228,214,178,0.55)] sm:col-span-2"
             >
               {siteContent.cta.inquiry}
             </TransitionLink>
