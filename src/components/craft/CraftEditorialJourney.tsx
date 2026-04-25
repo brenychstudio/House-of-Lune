@@ -189,7 +189,7 @@ export function CraftEditorialJourney({
                       ref={(node) => {
                         chapterRefs.current[index] = node;
                       }}
-                      className="flex min-h-[56vh] items-center border-t border-white/8 py-10 sm:py-12 lg:min-h-[72vh]"
+                      className="border-t border-white/8 py-12 sm:py-14 lg:flex lg:min-h-[72vh] lg:items-center"
                     >
                       <div
                         className={`max-w-[24rem] border-l pl-5 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
@@ -210,13 +210,26 @@ export function CraftEditorialJourney({
                           {chapter.body}
                         </p>
                       </div>
+
+                      <div className="mt-8 overflow-hidden rounded-[1.35rem] border border-white/10 bg-white/[0.02] lg:hidden">
+                        <div className="relative aspect-[16/10]">
+                          <Image
+                            src={chapter.image}
+                            alt={chapter.title}
+                            fill
+                            sizes="100vw"
+                            className="object-cover object-center"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-[#040812]/24 via-transparent to-transparent" />
+                        </div>
+                      </div>
                     </article>
                   );
                 })}
               </div>
             </div>
 
-            <div>
+            <div className="hidden lg:block">
               <div
                 ref={shellRef}
                 className="lg:sticky lg:top-[72px] lg:h-[calc(100vh-72px)]"

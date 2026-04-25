@@ -1,6 +1,8 @@
 import Link from "next/link";
 
-export default function PrivateInquiry() {
+import type { Locale } from "@/i18n/config";
+
+export default function PrivateInquiry({ lang }: { lang: Locale }) {
   return (
     <section className="border-t border-white/6 bg-transparent">
       <div className="mx-auto max-w-[1320px] px-6 py-14 lg:px-10 lg:py-18">
@@ -24,14 +26,14 @@ export default function PrivateInquiry() {
 
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                 <Link
-                  href="./contact"
+                  href={`/${lang}/contact`}
                   className="inline-flex items-center justify-center rounded-full bg-[rgba(228,214,178,0.92)] px-5 py-3 text-[0.7rem] uppercase tracking-[0.18em] text-[#0d1017] transition-opacity duration-300 hover:opacity-90"
                 >
                   Arrange Private Appointment
                 </Link>
 
                 <Link
-                  href="./contact?mode=bespoke"
+                  href={`/${lang}/contact?mode=bespoke`}
                   className="inline-flex items-center justify-center rounded-full border border-white/12 px-5 py-3 text-[0.7rem] uppercase tracking-[0.18em] text-white/78 transition-colors duration-300 hover:border-white/20 hover:text-[var(--color-text)]"
                 >
                   Discuss Bespoke Commission

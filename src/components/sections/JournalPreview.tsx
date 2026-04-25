@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { ImageDrift } from "@/components/motion/ImageDrift";
 import { TransitionLink } from "@/components/motion/TransitionLink";
+import type { Locale } from "@/i18n/config";
 
 const entries = [
   "House notes from winter salon appointments",
@@ -9,7 +10,7 @@ const entries = [
   "Campaign frame 01: silhouettes in quiet architecture",
 ];
 
-export default function JournalPreview() {
+export default function JournalPreview({ lang }: { lang: Locale }) {
   return (
     <section className="border-t border-white/6 bg-transparent">
       <div className="mx-auto max-w-[1320px] px-6 py-18 lg:px-10 lg:py-22">
@@ -61,7 +62,7 @@ export default function JournalPreview() {
 
             <div className="mt-5">
               <TransitionLink
-                href="./journal"
+                href={`/${lang}/journal`}
                 className="luxury-line-link inline-flex pb-1 text-[0.72rem] uppercase tracking-[0.22em] text-white/62 hover:text-[var(--color-text)]"
               >
                 {"Open Journal \u2192"}

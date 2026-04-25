@@ -67,7 +67,7 @@ export default async function LocaleHomePage({
         </EditorialReveal>
 
         <div className="relative z-10">
-          <HomeEditorialStage />
+          <HomeEditorialStage lang={lang} />
         </div>
 
         <EditorialReveal
@@ -75,7 +75,7 @@ export default async function LocaleHomePage({
           delay={0.04}
           className="relative z-10"
         >
-          <MaisonPreview />
+          <MaisonPreview lang={lang} />
         </EditorialReveal>
 
         <EditorialReveal
@@ -83,7 +83,7 @@ export default async function LocaleHomePage({
           delay={0.06}
           className="relative z-10"
         >
-          <JournalPreview />
+          <JournalPreview lang={lang} />
         </EditorialReveal>
 
         <EditorialReveal
@@ -91,7 +91,7 @@ export default async function LocaleHomePage({
           delay={0.05}
           className="relative z-10 pb-8 sm:pb-10 lg:pb-14"
         >
-          <PrivateInquiry />
+          <PrivateInquiry lang={lang} />
         </EditorialReveal>
       </div>
     </PageShell>

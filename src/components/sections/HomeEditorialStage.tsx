@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 import { TransitionLink } from "@/components/motion/TransitionLink";
+import type { Locale } from "@/i18n/config";
 
 type StageItem = {
   id: string;
@@ -27,7 +28,7 @@ const STAGE_ITEMS: StageItem[] = [
     title: "Precision at every scale",
     description:
       "From stone to silhouette, each decision is exacting and quietly observed.",
-    href: "./craftsmanship",
+    href: "craftsmanship",
     cta: "View Craftsmanship",
     stageLabel: "Craft \u00b7 Material Study",
     stageMeta: "Metal texture \u00b7 Setting balance \u00b7 Light calibration",
@@ -42,7 +43,7 @@ const STAGE_ITEMS: StageItem[] = [
     title: "A discreet house, internationally placed",
     description:
       "Inside the maison where intentions are tested, then made lasting.",
-    href: "./maison",
+    href: "maison",
     cta: "Discover the Maison",
     stageLabel: "Maison \u00b7 Private Salons",
     stageMeta: "Appointments \u00b7 Atmosphere \u00b7 Discretion",
@@ -56,7 +57,7 @@ const STAGE_ITEMS: StageItem[] = [
     title: "Editorial notes from the house",
     description:
       "Notes on material, culture, and contemporary adornment from the house.",
-    href: "./journal",
+    href: "journal",
     cta: "Open Journal",
     stageLabel: "Journal \u00b7 Quiet Architecture",
     stageMeta: "Notes \u00b7 Reflections \u00b7 House voice",
@@ -67,7 +68,7 @@ const STAGE_ITEMS: StageItem[] = [
   },
 ];
 
-export default function HomeEditorialStage() {
+export default function HomeEditorialStage({ lang }: { lang: Locale }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [stageShift, setStageShift] = useState(0);
 
@@ -240,10 +241,10 @@ export default function HomeEditorialStage() {
                   ref={(node) => {
                     itemRefs.current[index] = node;
                   }}
-                  className="flex min-h-[84vh] items-center border-b border-white/6 first:border-t first:border-white/6 lg:min-h-[98vh]"
+                  className="border-b border-white/6 py-14 first:border-t first:border-white/6 sm:py-16 lg:flex lg:min-h-[98vh] lg:items-center lg:py-0"
                 >
                   <div
-                    className={`max-w-[22rem] transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                    className={`max-w-full transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] lg:max-w-[22rem] ${
                       isActive
                         ? "translate-y-0 opacity-100 blur-0"
                         : "translate-y-2 opacity-45 blur-[1px]"
@@ -262,7 +263,7 @@ export default function HomeEditorialStage() {
                     </p>
 
                     <TransitionLink
-                      href={item.href}
+                      href={`/${lang}/${item.href}`}
                       className="luxury-line-link mt-6 inline-flex pb-1 text-[0.72rem] uppercase tracking-[0.22em] text-white/62 hover:text-[var(--color-text)]"
                     >
                       {`${item.cta} \u2192`}

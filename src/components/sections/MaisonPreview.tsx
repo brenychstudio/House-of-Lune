@@ -2,8 +2,9 @@ import Image from "next/image";
 
 import { ImageDrift } from "@/components/motion/ImageDrift";
 import { TransitionLink } from "@/components/motion/TransitionLink";
+import type { Locale } from "@/i18n/config";
 
-export default function MaisonPreview() {
+export default function MaisonPreview({ lang }: { lang: Locale }) {
   return (
     <section className="border-t border-white/6 bg-transparent">
       <div className="mx-auto max-w-[1320px] px-6 py-18 lg:px-10 lg:py-24">
@@ -43,7 +44,7 @@ export default function MaisonPreview() {
               </p>
 
               <TransitionLink
-                href="./maison"
+                href={`/${lang}/maison`}
                 className="luxury-line-link inline-flex pb-1 text-[0.72rem] uppercase tracking-[0.22em] text-white/62 hover:text-[var(--color-text)]"
               >
                 {"Discover the Maison \u2192"}

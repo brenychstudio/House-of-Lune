@@ -45,7 +45,7 @@ export function InquiryOptions({
               </div>
 
               <span className="pt-1 text-[0.9rem] text-white/28 transition-all duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-[2px] group-hover:text-white/58">
-                {"\u2198"}
+                {"\u2192"}
               </span>
             </TransitionLink>
           ))}
