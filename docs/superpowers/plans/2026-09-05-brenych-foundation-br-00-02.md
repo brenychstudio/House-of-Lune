@@ -135,7 +135,7 @@
 
 - [ ] **Step 2: Update compatible direct dependencies and add focused test/database tooling**
 
-  Remove `motion`, `three`, `@react-three/fiber`, and `@react-three/drei`; update Next/OpenNext/Wrangler and compatible patch releases; add `pg@8.23.0`; add Vitest, Testing Library, Playwright, axe, jsdom, and `@types/pg` as development dependencies. Do not upgrade TypeScript to 7 or ESLint to 10 in this slice.
+  Remove `motion`, `three`, `@react-three/fiber`, and `@react-three/drei`; update Next/OpenNext/Wrangler and compatible patch releases; add `pg@8.23.0`; add Vitest, Testing Library, Playwright, axe, jsdom 29, and `@types/pg` as development dependencies. Keep TypeScript on 5.x and ESLint on 9.39.5 because the Next 16.3 plugin graph does not yet declare ESLint 10 compatibility.
 
 - [ ] **Step 3: Define deterministic scripts**
 

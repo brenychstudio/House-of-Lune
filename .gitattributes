@@ -5,4 +5,5 @@
 *.jpeg binary
 *.webp binary
 *.ico binary
+cloudflare-env.d.ts -whitespace
 *.glb binary
