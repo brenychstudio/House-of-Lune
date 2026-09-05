@@ -66,6 +66,9 @@ test("the compact header menu is keyboard complete", async ({ page }) => {
 
   const menu = page.getByRole("dialog", { name: "Site menu" });
   await expect(menu.getByRole("link", { name: "Objects" })).toBeFocused();
+  await expect(menu.getByRole("link", { name: "Bag" })).toBeVisible();
+  const menuBox = await menu.boundingBox();
+  expect(menuBox?.height).toBeGreaterThan(700);
   await expect(page.locator("body")).toHaveCSS("overflow", "hidden");
 
   await page.keyboard.press("Escape");

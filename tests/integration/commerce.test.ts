@@ -19,7 +19,7 @@ import {
   executeIdempotent,
 } from "@/platform/db/services/commerceService";
 import { withTransaction } from "@/platform/db/transaction";
-import { consumeOnce } from "@/platform/events/outboxWorker";
+import { claimOutboxBatch, consumeOnce, markOutboxFailed } from "@/platform/events/outboxWorker";
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL ?? "postgresql://postgres@127.0.0.1:54329/brenych_test",
@@ -161,7 +161,23 @@ describe("transactional commerce services", () => {
   });
 
   it("records one durable consumer effect receipt across repeated delivery", async () => {
-    const eventId = randomUUID();
+    const aggregateId = randomUUID();
+    const outbox = await withTransaction(pool, (client) => appendOutboxEvent(client, {
+      eventType: "test.delivery",
+      aggregateType: "test",
+      aggregateId,
+      correlationId: `corr-${aggregateId}`,
+      payload: { aggregateId },
+    }));
+    const claimed = await claimOutboxBatch(pool, 100);
+    expect(claimed.map(({ id }) => id)).toContain(outbox.id);
+    await markOutboxFailed(pool, outbox.id, "expected test failure", 1);
+    expect((await pool.query("SELECT status, last_error FROM outbox_events WHERE id = $1", [outbox.id])).rows[0]).toMatchObject({
+      status: "DEAD_LETTER",
+      last_error: "expected test failure",
+    });
+
+    const eventId = outbox.id;
     let executions = 0;
     const effect = async (client: PoolClient) => {
       executions += 1;
