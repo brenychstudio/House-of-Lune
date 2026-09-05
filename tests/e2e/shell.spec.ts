@@ -42,7 +42,9 @@ test("public foundation content has no price claim", async ({ page }) => {
   await page.goto("/en/objects/mask-01");
 
   await expect(page.locator("body")).not.toContainText(/[€£$]\s?\d/);
-  await expect(page.getByText("Development presentation — not offered for sale")).toBeVisible();
+  await expect(page.getByText(process.env.BRENYCH_E2E_DEGRADED === "1"
+    ? "Commercial data temporarily unavailable"
+    : "Development presentation — not offered for sale")).toBeVisible();
 });
 
 test("the shell has no serious or critical automated accessibility violations", async ({ page }) => {

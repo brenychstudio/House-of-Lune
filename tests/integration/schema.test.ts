@@ -53,9 +53,9 @@ describe("canonical PostgreSQL schema", () => {
   it("rejects duplicate product slugs and variant SKUs", async () => {
     await inRollback(async (client) => {
       const product = await client.query<{ id: string }>(
-        "INSERT INTO products (slug, name) VALUES ('mask-01', 'MASK 01') RETURNING id",
+        "INSERT INTO products (slug, name) VALUES ('test-unique-slug', 'Synthetic object') RETURNING id",
       );
-      await rejectsConstraint(client, "INSERT INTO products (slug, name) VALUES ('mask-01', 'Other')");
+      await rejectsConstraint(client, "INSERT INTO products (slug, name) VALUES ('test-unique-slug', 'Other')");
       await client.query(
         "INSERT INTO variants (product_id, sku, finish, fulfillment_mode) VALUES ($1, 'BR-M01-UNIQ', 'Silver', 'MADE_TO_ORDER')",
         [product.rows[0]?.id],

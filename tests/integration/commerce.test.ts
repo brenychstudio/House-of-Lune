@@ -1,7 +1,8 @@
 import { randomUUID } from "node:crypto";
 
-import { Pool, type PoolClient } from "pg";
-import { afterAll, describe, expect, it } from "vitest";
+import type { PoolClient } from "pg";
+import { describe, expect, it } from "vitest";
+import { isolatedPostgres } from "../helpers/postgres";
 
 import { buildOrderSnapshot } from "@/modules/orders/domain";
 import { createMoney } from "@/modules/shared/valueObjects";
@@ -21,9 +22,7 @@ import {
 import { withTransaction } from "@/platform/db/transaction";
 import { claimOutboxBatch, consumeOnce, markOutboxFailed } from "@/platform/events/outboxWorker";
 
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL ?? "postgresql://postgres@127.0.0.1:54329/brenych_test",
-});
+const { pool } = isolatedPostgres();
 
 function money(minorUnits: bigint) {
   const result = createMoney(minorUnits, "EUR");
@@ -64,7 +63,6 @@ function snapshot(productId: string, variantId: string, sku: string) {
   return result.value;
 }
 
-afterAll(async () => pool.end());
 
 describe("transactional commerce services", () => {
   it("creates catalog and activates one market-specific price book", async () => {
@@ -83,7 +81,7 @@ describe("transactional commerce services", () => {
         "SELECT pb.state, pbe.unit_price_minor FROM price_books pb JOIN price_book_entries pbe ON pbe.price_book_id = pb.id WHERE pb.id = $1",
         [priceBook.id],
       );
-      expect(active.rows[0]).toMatchObject({ state: "ACTIVE", unit_price_minor: "89000" });
+      expect(active.rows[0]).toMatchObject({ state: "PUBLISHED", unit_price_minor: "89000" });
     });
   });
 

@@ -13,7 +13,7 @@ export type PriceBook = Readonly<{
   revision: string;
   effectiveFrom: UtcTimestamp;
   effectiveUntil: UtcTimestamp | null;
-  state: "DRAFT" | "ACTIVE" | "RETIRED";
+  state: "DRAFT" | "PUBLISHED" | "RETIRED";
 }>;
 
 export type PriceBookEntry = Readonly<{
@@ -36,8 +36,15 @@ export function createPriceBook(input: Readonly<{
       },
     };
   }
-  if (!/^[a-z]{2}-\d{4}-\d{2}$/.test(input.revision)) {
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)+$/.test(input.revision)) {
     return { ok: false, error: { code: "INVALID_PRICE_BOOK_REVISION", message: "Price book revision is invalid" } };
   }
   return { ok: true, value: Object.freeze({ ...input }) };
+}
+
+export function validatePriceWindow(from: Date, until: Date | null): void {
+  if (!Number.isFinite(from.getTime()) ||
+      (until !== null && (!Number.isFinite(until.getTime()) || until <= from))) {
+    throw new Error("Invalid price-book effective window");
+  }
 }
