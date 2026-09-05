@@ -11,15 +11,16 @@ This foundation is under active development and has not been publicly launched. 
 | BR-00 | Complete |
 | BR-01 | Complete |
 | BR-02 | Complete |
-| BR-03 | Ready to begin |
+| BR-03 | Complete |
+| BR-04 | Ready to begin |
 
-- Current work lives on `migration/br-00-02-brenych`.
+- Current work lives on `feature/br-03-catalog`, stacked on `migration/br-00-02-brenych`.
 - Production deployment has not occurred.
 - `brenych.com` has not been cut over.
 - Payment, tax, and shipping providers are not connected.
 - Real commercial catalog data has not been published.
 
-BR-03 entry criteria and the current roadmap are recorded in [`docs/status/BR-03_ENTRY_CRITERIA.md`](docs/status/BR-03_ENTRY_CRITERIA.md) and [`docs/status/ROADMAP_STATUS.md`](docs/status/ROADMAP_STATUS.md).
+The [BR-03 result](docs/reports/BR-03_RESULT.md), [BR-04 entry criteria](docs/status/BR-04_ENTRY_CRITERIA.md), and [roadmap](docs/status/ROADMAP_STATUS.md) record the current milestone.
 
 ## Current architecture
 
@@ -45,6 +46,8 @@ Provider-neutral domain contracts cover:
 - Service and Warranty
 
 These contracts define the internal commerce model; they do not indicate that external providers are live.
+
+BR-03 adds transactional catalog commands, stable finish identities, immutable effective-dated market price books, overlap protection, and public read models with derived inventory/edition/capacity availability. Object routes read canonical data at request time and retain a noncommercial editorial fallback during database outages. See the [catalog contract](docs/architecture/BR-03_CATALOG_CONTRACT.md) and [catalog-to-spatial ADR](docs/architecture/adr/0009-catalog-to-spatial-presentation-boundary.md).
 
 ### Transactional foundation
 
@@ -96,6 +99,10 @@ The repository does not define a production deployment command.
 Local configuration uses the environment-variable names documented in `.env.example`: `BRENYCH_ENV`, `NEXT_PUBLIC_SITE_URL`, and `DATABASE_URL`. Keep credentials in local, untracked environment configuration; never commit secrets.
 
 PostgreSQL integration tests require the configured test database to be available. Development seeding is guarded by `BRENYCH_ENV` and is not a production catalog publication mechanism.
+
+For local catalog/E2E work, start the PostgreSQL service in `compose.yaml`, export `DATABASE_URL` and set `BRENYCH_ENV=development`, then migrate and seed. CLI database scripts use process environment variables; Next.js also loads local environment files. Integration suites need a local test role with CREATEDB permission for isolated bootstrap/pricing fixtures.
+
+The seed creates only MASK 01 in DRAFT / UNDECIDED / NOT_FOR_SALE state, with no variant, finish, edition, price or capacity. Normal public queries exclude drafts; a separate development-only projection exposes only its noncommercial identity/status.
 
 ## Migration provenance
 

@@ -1,0 +1,60 @@
+{
+  "baseURL": "http://127.0.0.1:8787",
+  "capturedAt": "2026-09-05T15:03:02.709Z",
+  "checks": [
+    {
+      "path": "/en/objects",
+      "width": 1440,
+      "status": 200,
+      "canonicalIdentity": false,
+      "degraded": true,
+      "overflow": 0,
+      "file": "objects-1440-degraded.png"
+    },
+    {
+      "path": "/en/objects/mask-01",
+      "width": 1440,
+      "status": 200,
+      "canonicalIdentity": false,
+      "degraded": true,
+      "overflow": 0,
+      "file": "mask-01-1440-degraded.png"
+    },
+    {
+      "path": "/en/objects",
+      "width": 1024,
+      "status": 200,
+      "canonicalIdentity": false,
+      "degraded": true,
+      "overflow": 0,
+      "file": "objects-1024-degraded.png"
+    },
+    {
+      "path": "/en/objects/mask-01",
+      "width": 1024,
+      "status": 200,
+      "canonicalIdentity": false,
+      "degraded": true,
+      "overflow": 0,
+      "file": "mask-01-1024-degraded.png"
+    },
+    {
+      "path": "/en/objects",
+      "width": 390,
+      "status": 200,
+      "canonicalIdentity": false,
+      "degraded": true,
+      "overflow": 0,
+      "file": "objects-390-degraded.png"
+    },
+    {
+      "path": "/en/objects/mask-01",
+      "width": 390,
+      "status": 200,
+      "canonicalIdentity": false,
+      "degraded": true,
+      "overflow": 0,
+      "file": "mask-01-390-degraded.png"
+    }
+  ]
+}
