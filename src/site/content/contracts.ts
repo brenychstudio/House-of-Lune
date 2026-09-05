@@ -20,7 +20,6 @@ export type ObjectFoundation = Readonly<{
   slug: "mask-01";
   name: "MASK 01";
   descriptor: string;
-  statusLabel: string;
   chapters: readonly Readonly<{
     label: "FORM" | "MATERIAL" | "FIT" | "CRAFT" | "OBJECT" | "ACQUIRE";
     description: string;

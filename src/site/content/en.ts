@@ -78,7 +78,6 @@ export const enContent = {
     slug: "mask-01",
     name: "MASK 01",
     descriptor: "A development foundation for BRENYCH’s first face object.",
-    statusLabel: "Development presentation — not offered for sale",
     chapters: [
       { label: "FORM", description: "Silhouette and relationship to the face." },
       { label: "MATERIAL", description: "Surface, finish, and response to controlled light." },
