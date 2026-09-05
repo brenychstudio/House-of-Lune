@@ -1,204 +1,102 @@
-# House of Lune
+# BRENYCH
 
-**House of Lune** is a production-oriented luxury jewelry website concept designed as a cinematic digital maison rather than a conventional e-commerce storefront.
+BRENYCH is the production software foundation for founder-led premium wearable sculptural objects. The repository establishes direct-commerce, physical-edition, production and fulfillment lifecycle, collector/provenance, and service capabilities, with cinematic and spatial product presentation delivered as progressive enhancement.
 
-The project explores how a premium jewelry brand can communicate rarity, restraint, materiality, and private-client intimacy through editorial hierarchy, dark atmospheric staging, slow motion, multilingual routing, object-led product pages, and a private inquiry flow.
+This foundation is under active development and has not been publicly launched. External payment, tax, shipping, production, and customer-management providers are not connected yet.
 
-Live project:  
-https://house-of-lune.brenychinfo.workers.dev/en
+## Current status
 
----
+| Release | Status |
+| --- | --- |
+| BR-00 | Complete |
+| BR-01 | Complete |
+| BR-02 | Complete |
+| BR-03 | Ready to begin |
 
-## Overview
+- Current work lives on `migration/br-00-02-brenych`.
+- Production deployment has not occurred.
+- `brenych.com` has not been cut over.
+- Payment, tax, and shipping providers are not connected.
+- Real commercial catalog data has not been published.
 
-House of Lune was created as a full premium vertical demo for the luxury jewelry niche.
+BR-03 entry criteria and the current roadmap are recorded in [`docs/status/BR-03_ENTRY_CRITERIA.md`](docs/status/BR-03_ENTRY_CRITERIA.md) and [`docs/status/ROADMAP_STATUS.md`](docs/status/ROADMAP_STATUS.md).
 
-The site includes:
+## Current architecture
 
-- cinematic homepage
-- curated collection page
-- dynamic product detail pages
-- craftsmanship narrative
-- maison philosophy page
-- journal/editorial page
-- private contact and inquiry flow
-- multilingual routing
-- Open Graph metadata
-- Cloudflare Workers deployment via OpenNext
+### Storefront foundation
 
-The visual direction is based on the idea of a **Moonlit Object Theatre**: a quiet digital stage where jewelry is revealed through darkness, contour, reflection, and deliberate silence.
-
----
-
-## Project Type
-
-Premium front-end system / luxury brand website concept.
-
-This is not a real jewelry brand or commercial store. It is a portfolio-grade digital maison prototype created to demonstrate premium art direction, interaction design, front-end architecture, and production deployment capability.
-
----
-
-## Creative Direction
-
-The interface uses a dark editorial visual system with:
-
-- near-black backgrounds
-- warm ivory typography
-- platinum-like borders
-- soft atmospheric light
-- restrained image motion
-- slow editorial reveals
-- object-led product presentation
-- private salon language
-
-The goal was to avoid generic luxury templates and standard e-commerce patterns. Products are presented as rare objects within a private maison system rather than as catalog inventory.
-
----
-
-## Key Pages
-
-### Home
-
-Introduces the maison through a cinematic hero chamber, editorial quote, selected signatures, craftsmanship preview, maison preview, journal preview, and private inquiry CTA.
-
-### Collection
-
-A curated selection of jewelry pieces presented in a calm product grid with editorial pacing and minimal catalog noise.
-
-### Piece Pages
-
-Dynamic product detail pages for individual jewelry pieces. Each page includes hero imagery, material information, image chapters, story/craft copy, and private inquiry CTAs.
-
-### Craftsmanship
-
-An atelier-inspired narrative page with process chapters and a sticky visual stage on desktop, plus responsive fallback layouts on tablet/mobile.
-
-### Maison
-
-A private-house page describing philosophy, material language, and salon atmosphere.
-
-### Journal
-
-An editorial page for campaign studies, house notes, and material observations.
-
-### Contact
-
-A private inquiry page focused on appointments, availability requests, bespoke commissions, and salon-style communication.
-
----
-
-## Tech Stack
-
-- Next.js App Router
-- React
-- TypeScript
+- Next.js App Router with React and TypeScript
 - Tailwind CSS
-- Motion
-- OpenNext
-- Cloudflare Workers
-- Cloudflare Wrangler
+- Semantic, DOM-first storefront rendering
+- Progressive spatial presentation boundary with a complete static fallback
+- Responsive and accessibility foundations
+- OpenNext compatibility for Cloudflare Workers
 
----
+### Commerce foundation
 
-## Technical Highlights
+Provider-neutral domain contracts cover:
 
-- App Router structure
-- Multilingual routes: `/en`, `/fr`, `/es`
-- Dynamic product pages: `/[lang]/piece/[slug]`
-- Reusable editorial sections
-- Shared layout system
-- Motion primitives
-- Route transition layer
-- Private inquiry API route foundation
-- Open Graph image integration
-- Sitemap and robots support
-- Cloudflare Workers deployment through OpenNext
+- Product, Variant, Edition, and Physical Instance
+- Customer, Price Book, Cart, and Order
+- Payment and Refund
+- Inventory, Reservation, and Capacity
+- Production and QC
+- Shipment and Return
+- Service and Warranty
 
----
+These contracts define the internal commerce model; they do not indicate that external providers are live.
 
-## Deployment Note
+### Transactional foundation
 
-This project uses **Next.js 16** and is deployed to **Cloudflare Workers** through **OpenNext**.
+- PostgreSQL with versioned, checksum-verified migrations
+- Transactional repositories and application services
+- Transactional outbox and durable idempotency
+- Append-oriented audit and history records
+- Concurrency protection for edition and production-capacity allocation
 
-For Cloudflare runtime stability, the production build uses Webpack:
+## Development
 
-```json
-"build": "next build --webpack"
+Install the locked dependency set and start the local application:
 
-Local Development
-
-Install dependencies:
-
-npm install
-
-Run local development server:
-
+```powershell
+npm ci
 npm run dev
+```
 
-Build production version:
+Run the verification commands individually or through the aggregate gate:
 
+```powershell
+npm run lint
+npm run typecheck
+npm run test:unit
+npm run test:integration
+npm run test:e2e
 npm run build
+npm run verify
+```
 
-Preview Cloudflare Worker locally:
+Database lifecycle commands:
 
+```powershell
+npm run db:migrate
+npm run db:check
+npm run db:seed:dev
+```
+
+Build and preview the OpenNext worker locally:
+
+```powershell
 npm run preview:cf
+```
 
-Deploy to Cloudflare Workers:
+The repository does not define a production deployment command.
 
-npm run deploy:cf
-Cloudflare Deployment
+## Environment and database
 
-The project uses:
+Local configuration uses the environment-variable names documented in `.env.example`: `BRENYCH_ENV`, `NEXT_PUBLIC_SITE_URL`, and `DATABASE_URL`. Keep credentials in local, untracked environment configuration; never commit secrets.
 
-open-next.config.ts
-wrangler.jsonc
+PostgreSQL integration tests require the configured test database to be available. Development seeding is guarded by `BRENYCH_ENV` and is not a production catalog publication mechanism.
 
-Generated deployment artifacts such as .open-next and .wrangler should not be committed.
+## Migration provenance
 
-Environment Variables
-
-Optional production site URL:
-
-NEXT_PUBLIC_SITE_URL=https://house-of-lune.brenychinfo.workers.dev
-
-If a custom domain is connected, update this value to the final production domain.
-
-Open Graph
-
-The main Open Graph image is expected at:
-
-public/og/house-of-lune-og.png
-
-Production URL:
-
-https://house-of-lune.brenychinfo.workers.dev/og/house-of-lune-og.png
-Repository Status
-
-Current status:
-
-deployed prototype
-production build passing
-Cloudflare Workers deployment working
-mobile/tablet responsive QA pass completed
-Open Graph metadata layer prepared
-portfolio case text prepared
-Role
-
-Creative Developer / Premium Front-end Systems Builder
-
-Responsibilities included:
-
-concept implementation
-front-end architecture
-interface system
-responsive layout
-motion polish
-product page system
-multilingual structure
-SEO/OG setup
-Cloudflare deployment debugging
-Portfolio Positioning
-
-House of Lune demonstrates the ability to build a premium front-end system for luxury, jewelry, fashion, boutique retail, and editorial brand experiences.
-
-The project combines visual direction, motion design, component architecture, multilingual routing, dynamic content, and production deployment into one complete digital maison prototype.
+This repository originated from the House of Lune Next.js prototype, which served as the technical migration source for BRENYCH. The complete pre-BRENYCH House of Lune state is preserved at the annotated Git tag `house-of-lune-pre-brenych-20260905`. House of Lune is no longer the active product identity.

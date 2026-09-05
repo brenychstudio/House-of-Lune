@@ -1,14 +1,16 @@
 import type { MetadataRoute } from "next";
 
-import { siteUrl as baseUrl } from "@/lib/seo/metadata";
+import { readPublicEnvironment } from "@/platform/config/environment";
+import { siteUrl } from "@/site/seo/metadata";
 
 export default function robots(): MetadataRoute.Robots {
+  const { indexable } = readPublicEnvironment(process.env);
+
   return {
-    rules: {
-      userAgent: "*",
-      allow: "/",
-    },
-    sitemap: `${baseUrl}/sitemap.xml`,
-    host: baseUrl,
+    rules: indexable
+      ? { userAgent: "*", allow: "/" }
+      : { userAgent: "*", disallow: "/" },
+    sitemap: `${siteUrl}/sitemap.xml`,
+    host: siteUrl,
   };
 }
