@@ -48,6 +48,21 @@ if (process.argv.includes("--print-plan")) {
         throw new Error(`Migration state mismatch: ${migration.version}`);
       }
     }
+    if (migrations.rowCount !== expected.length) throw new Error("Unexpected migration history");
+    const requiredConstraints = [
+      "product_activation_profile", "variant_finish_activation", "variant_lead_time_promise",
+      "published_market_windows_do_not_overlap",
+    ];
+    const constraints = await pool.query("SELECT conname FROM pg_constraint WHERE connamespace='public'::regnamespace");
+    for (const name of requiredConstraints) {
+      if (!constraints.rows.some(row => row.conname === name)) throw new Error(`Missing constraint: ${name}`);
+    }
+    const requiredTriggers = ["products_guard_commercial", "variants_guard_commercial",
+      "editions_guard_configuration", "variants_guard_unique_edition", "price_books_immutable_history", "price_entries_immutable_history"];
+    const triggers = await pool.query("SELECT tgname FROM pg_trigger WHERE NOT tgisinternal AND tgenabled='O'");
+    for (const name of requiredTriggers) {
+      if (!triggers.rows.some(row => row.tgname === name)) throw new Error(`Missing active trigger: ${name}`);
+    }
     console.log(`schema ok: ${actual.length} tables, ${migrations.rowCount} migrations, UTC-safe timestamptz`);
   } finally {
     await pool.end();

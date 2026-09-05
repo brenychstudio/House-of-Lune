@@ -1,12 +1,17 @@
 import type { EntityId, Result, Sku, Slug, UtcTimestamp } from "@/modules/shared/valueObjects";
 
 export type FulfillmentMode = "IN_STOCK" | "MADE_TO_ORDER" | "BESPOKE";
+export type ScarcityMode = "UNDECIDED" | "CORE" | "LIMITED" | "UNIQUE_ATELIER";
+export type AcquisitionMode = "NOT_FOR_SALE" | "PURCHASABLE" | "INQUIRY_ONLY";
+export type ProductStatus = "DRAFT" | "ACTIVE" | "ARCHIVED";
 
 export type Product = Readonly<{
   id: EntityId;
   slug: Slug;
   name: string;
-  status: "DRAFT" | "ACTIVE" | "ARCHIVED";
+  status: ProductStatus;
+  scarcityMode: ScarcityMode;
+  acquisitionMode: AcquisitionMode;
   createdAt: UtcTimestamp;
 }>;
 
@@ -15,6 +20,10 @@ export type Variant = Readonly<{
   productId: EntityId;
   sku: Sku;
   finish: string;
+  finishCode: string | null;
+  finishName: string;
+  leadTimeMinDays: number | null;
+  leadTimeMaxDays: number | null;
   fulfillmentMode: FulfillmentMode;
   active: boolean;
 }>;
