@@ -1,0 +1,106 @@
+{
+  "baseURL": "http://127.0.0.1:3104",
+  "capturedAt": "2026-09-05T11:07:35.822Z",
+  "checks": [
+    {
+      "route": "/en",
+      "viewport": {
+        "name": "desktop",
+        "width": 1440,
+        "height": 900
+      },
+      "file": "home-1440x900.png",
+      "overflow": 0
+    },
+    {
+      "route": "/en/objects",
+      "viewport": {
+        "name": "desktop",
+        "width": 1440,
+        "height": 900
+      },
+      "file": "objects-1440x900.png",
+      "overflow": 0
+    },
+    {
+      "route": "/en/objects/mask-01",
+      "viewport": {
+        "name": "desktop",
+        "width": 1440,
+        "height": 900
+      },
+      "file": "mask-01-1440x900.png",
+      "overflow": 0
+    },
+    {
+      "route": "/en",
+      "viewport": {
+        "name": "tablet",
+        "width": 1024,
+        "height": 1366
+      },
+      "file": "home-1024x1366.png",
+      "overflow": 0
+    },
+    {
+      "route": "/en/objects",
+      "viewport": {
+        "name": "tablet",
+        "width": 1024,
+        "height": 1366
+      },
+      "file": "objects-1024x1366.png",
+      "overflow": 0
+    },
+    {
+      "route": "/en/objects/mask-01",
+      "viewport": {
+        "name": "tablet",
+        "width": 1024,
+        "height": 1366
+      },
+      "file": "mask-01-1024x1366.png",
+      "overflow": 0
+    },
+    {
+      "route": "/en",
+      "viewport": {
+        "name": "mobile",
+        "width": 390,
+        "height": 844
+      },
+      "file": "home-390x844.png",
+      "overflow": 0
+    },
+    {
+      "route": "/en/objects",
+      "viewport": {
+        "name": "mobile",
+        "width": 390,
+        "height": 844
+      },
+      "file": "objects-390x844.png",
+      "overflow": 0
+    },
+    {
+      "route": "/en/objects/mask-01",
+      "viewport": {
+        "name": "mobile",
+        "width": 390,
+        "height": 844
+      },
+      "file": "mask-01-390x844.png",
+      "overflow": 0
+    },
+    {
+      "route": "/en#menu",
+      "viewport": {
+        "name": "mobile",
+        "width": 390,
+        "height": 844
+      },
+      "file": "menu-390x844.png",
+      "overflow": 0
+    }
+  ]
+}
