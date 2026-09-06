@@ -9,7 +9,7 @@ const execute = (file: string) => execFileSync(process.execPath, [file], {
 
 it("bootstraps PostgreSQL 17 from empty state and checks constraints plus checksums", async () => {
   expect((await pool.query("SHOW server_version")).rows[0].server_version).toMatch(/^17\./);
-  expect(execute("scripts/db/check.mjs")).toContain("10 migrations");
+  expect(execute("scripts/db/check.mjs")).toContain("13 migrations");
   expect(execute("scripts/db/migrate.mjs")).toBe("");
 });
 
