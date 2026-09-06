@@ -419,6 +419,130 @@ h2 {
   font-size: 0.78rem;
 }
 
+.account-page,
+.account-hero,
+.collector-sections {
+  width: min(100%, calc(var(--content) + (2 * var(--page))));
+  margin: 0 auto;
+}
+
+.account-page {
+  padding: var(--section) var(--page);
+}
+
+.account-hero {
+  width: 100%;
+  padding-bottom: clamp(3rem, 7vw, 6rem);
+}
+
+.collector-sections {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.account-panel {
+  padding: clamp(1.5rem, 4vw, 3.5rem);
+  background: var(--background-soft);
+}
+
+.account-panel > p,
+.empty-state,
+.account-field label span {
+  color: var(--text-subdued);
+}
+
+.account-form,
+.address-form {
+  display: grid;
+  gap: 1rem;
+  max-width: 38rem;
+  margin-top: 2rem;
+}
+
+.address-form {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  padding-top: 2rem;
+}
+
+.address-form h3,
+.address-form .address-actions,
+.address-form .account-status {
+  grid-column: 1 / -1;
+}
+
+.account-field {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.account-field label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.account-field input,
+.account-field select {
+  min-height: 3rem;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  padding: 0.7rem 0.8rem;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+}
+
+.account-form .button {
+  width: fit-content;
+}
+
+.account-status {
+  min-height: 1.5rem;
+  color: var(--metal);
+}
+
+.address-list {
+  display: grid;
+  gap: 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.address-list li {
+  border: 1px solid var(--line);
+  padding: 1rem;
+}
+
+.address-list address {
+  color: var(--text-subdued);
+  font-style: normal;
+}
+
+.address-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.text-button {
+  border: 0;
+  border-bottom: 1px solid var(--metal);
+  padding: 0 0 0.15rem;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+}
+
 @media (max-width: 68rem) {
   .site-header__desktop-nav {
     display: none;
@@ -470,6 +594,11 @@ h2 {
 
   .object-chapters li {
     min-height: 13rem;
+  }
+
+  .collector-sections,
+  .address-form {
+    grid-template-columns: 1fr;
   }
 }
 

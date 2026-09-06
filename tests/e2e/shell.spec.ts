@@ -10,7 +10,7 @@ const routes = [
   ["/en/journal", "Notes on form, body, process, and material."],
   ["/en/about", "BRENYCH is a name, an authorship, and a standard of work."],
   ["/en/private-inquiry", "A direct conversation with the studio."],
-  ["/en/account", "Ownership will extend beyond an order receipt."],
+  ["/en/account", "Collector Space"],
   ["/en/bag", "Your bag is empty."],
 ] as const;
 

@@ -10,9 +10,9 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const migrationsDirectory = join(root, "database", "migrations");
 const expectedTables = [
   "addresses", "audit_log", "capacity_reservations", "capacity_windows", "cart_items", "carts",
-  "consumer_receipts", "customer_identities", "customers", "editions", "idempotency_records",
+  "consumer_receipts", "customer_identities", "customer_sessions", "customers", "editions", "guest_sessions", "idempotency_records",
   "inventory_items", "order_items", "orders", "outbox_events", "payments", "physical_instances",
-  "price_book_entries", "price_books", "production_events", "production_orders", "production_recipes",
+  "passkey_credentials", "passwordless_access_limits", "passwordless_challenges", "price_book_entries", "price_books", "production_events", "production_orders", "production_recipes",
   "products", "refunds", "return_events", "returns", "schema_migrations", "service_cases",
   "service_events", "shipment_events", "shipments", "variants", "warranty_claims",
 ];
@@ -51,14 +51,15 @@ if (process.argv.includes("--print-plan")) {
     if (migrations.rowCount !== expected.length) throw new Error("Unexpected migration history");
     const requiredConstraints = [
       "product_activation_profile", "variant_finish_activation", "variant_lead_time_promise",
-      "published_market_windows_do_not_overlap",
+      "published_market_windows_do_not_overlap", "customer_identity_type", "customer_identity_namespace",
     ];
     const constraints = await pool.query("SELECT conname FROM pg_constraint WHERE connamespace='public'::regnamespace");
     for (const name of requiredConstraints) {
       if (!constraints.rows.some(row => row.conname === name)) throw new Error(`Missing constraint: ${name}`);
     }
     const requiredTriggers = ["products_guard_commercial", "variants_guard_commercial",
-      "editions_guard_configuration", "variants_guard_unique_edition", "price_books_immutable_history", "price_entries_immutable_history"];
+      "editions_guard_configuration", "variants_guard_unique_edition", "price_books_immutable_history", "price_entries_immutable_history",
+      "addresses_set_updated_at"];
     const triggers = await pool.query("SELECT tgname FROM pg_trigger WHERE NOT tgisinternal AND tgenabled='O'");
     for (const name of requiredTriggers) {
       if (!triggers.rows.some(row => row.tgname === name)) throw new Error(`Missing active trigger: ${name}`);
